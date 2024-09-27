@@ -1,4 +1,4 @@
-name: Lint and Test on Pull Request
+name: Lint and Test
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ on:
 jobs:
   commit-checks:
     runs-on: ubuntu-latest
-    name: Checks before commit
+    name: Lint&Test
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
