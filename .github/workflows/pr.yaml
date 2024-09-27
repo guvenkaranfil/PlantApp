@@ -27,7 +27,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install dependencies
-        run: yarn --cached
+        run: yarn install
       - name: Run lint
         run: yarn lint
       - name: Run Tests
