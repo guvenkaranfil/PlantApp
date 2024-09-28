@@ -17,21 +17,21 @@ describe('Home Screen', () => {
     afterNoonDate.setMinutes(30); // 30 minutes
     const {rerender} = render(<Home getTime={afterNoonDate} />);
 
-    expect(screen.getByText(/good afternoon/i)).toBeTruthy();
+    expect(screen.getByText(/good afternoon/i)).toBeOnTheScreen();
 
     const morningDate = new Date();
     morningDate.setHours(8); // 8 AM
     morningDate.setMinutes(0); // 30 minutes
     rerender(<Home getTime={morningDate} />);
 
-    expect(screen.getByText(/good morning/i)).toBeTruthy();
+    expect(screen.getByText(/good morning/i)).toBeOnTheScreen();
 
     const eveningDate = new Date();
     eveningDate.setHours(20); // 8 PM
     eveningDate.setMinutes(45); // 30 minutes
     rerender(<Home getTime={eveningDate} />);
 
-    expect(screen.getByText(/good evening/i)).toBeTruthy();
+    expect(screen.getByText(/good evening/i)).toBeOnTheScreen();
   });
 
   it('should render "Search for plants" search field', () => {
@@ -48,16 +48,18 @@ describe('Home Screen', () => {
     store.dispatch(updateUserPremium(false));
     render(<Home />);
 
-    expect(screen.getByText(/free premium available/i)).toBeTruthy();
-    expect(screen.getByText(/tap to upgrade your account/i)).toBeTruthy();
+    expect(screen.getByText(/free premium available/i)).toBeOnTheScreen();
+    expect(screen.getByText(/tap to upgrade your account/i)).toBeOnTheScreen();
   });
 
   it('should not show premium banner if user is not subscribed', () => {
     store.dispatch(updateUserPremium(true));
     render(<Home />);
 
-    expect(screen.queryByText(/free premium available/i)).not.toBeTruthy();
-    expect(screen.queryByText(/tap to upgrade your account/i)).not.toBeTruthy();
+    expect(screen.queryByText(/free premium available/i)).not.toBeOnTheScreen();
+    expect(
+      screen.queryByText(/tap to upgrade your account/i),
+    ).not.toBeOnTheScreen();
   });
 
   it('should fetch "Get Started" questions from API and display them', async () => {
@@ -96,9 +98,9 @@ describe('Home Screen', () => {
     render(<Home />);
 
     await waitFor(() => {
-      expect(screen.getByText(/get started/i)).toBeTruthy();
+      expect(screen.getByText(/get started/i)).toBeOnTheScreen();
       questions.map(question => {
-        expect(screen.getByText(question.title)).toBeTruthy();
+        expect(screen.getByText(question.title)).toBeOnTheScreen();
       });
     });
     expect(fetchGetStartedQuestionsSpy).toHaveBeenCalledTimes(1);
