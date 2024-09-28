@@ -19,4 +19,5 @@ export class ImageResources {
   static readonly onboardingsecondbackground: ImageURISource = require("../../../src/assets/images/onboardingSecondBackground.png");
   static readonly onboardingsecondcontent: ImageURISource = require("../../../src/assets/images/onboardingSecondContent.png");
   static readonly paywallbackground: ImageURISource = require("../../../src/assets/images/paywallBackground.png");
+  static readonly premiumbox: ImageURISource = require("../../../src/assets/images/premiumBox.png");
 }

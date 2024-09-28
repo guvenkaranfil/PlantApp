@@ -1,6 +1,7 @@
 import {
   Dimensions,
   FlatList,
+  Image,
   ImageBackground,
   Platform,
   Pressable,
@@ -10,6 +11,7 @@ import {
   View,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
+
 import Page from '../../components/Page';
 import greeting from './greeting';
 import {useAppSelector} from '../../store/hooks';
@@ -83,9 +85,11 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
       </ImageBackground>
 
       {!isUserPremium && (
-        <Pressable onPress={goToPaywall}>
-          <Text>Free Premium Available</Text>
-          <Text>Tap to upgrade your account!</Text>
+        <Pressable
+          testID="premiumBox"
+          style={styles.premiumBanner}
+          onPress={goToPaywall}>
+          <Image source={ImageResources.premiumbox} style={styles.premiumBox} />
         </Pressable>
       )}
 
@@ -114,6 +118,13 @@ const originalWidth = 375;
 const originalHeight = 135;
 const aspectRatio = Number((originalWidth / originalHeight).toFixed(2));
 const backgroundHeight = width / aspectRatio;
+
+const premiumBoxOriginalWidth = 327;
+const premiumOriginalHeight = 64;
+const premiumBoxAspectRatio = Number(
+  (premiumBoxOriginalWidth / premiumOriginalHeight).toFixed(2),
+);
+const premiumBoxHeight = (width - 48) / premiumBoxAspectRatio;
 
 const styles = StyleSheet.create({
   container: {
@@ -164,5 +175,13 @@ const styles = StyleSheet.create({
     fontSize: Sizes.h3,
     fontFamily: 'Rubik-Regular',
     color: Colors.text,
+  },
+  premiumBanner: {
+    marginVertical: 24,
+  },
+  premiumBox: {
+    alignSelf: 'center',
+    width: width - 48,
+    height: premiumBoxHeight,
   },
 });

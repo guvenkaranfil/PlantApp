@@ -52,18 +52,14 @@ describe('Home Screen', () => {
     store.dispatch(updateUserPremium(false));
     render(SUT());
 
-    expect(screen.getByText(/free premium available/i)).toBeOnTheScreen();
-    expect(screen.getByText(/tap to upgrade your account/i)).toBeOnTheScreen();
+    expect(screen.getByTestId(/premiumBox/i)).toBeOnTheScreen();
   });
 
   it('should not show premium banner if user is not subscribed', () => {
     store.dispatch(updateUserPremium(true));
     render(SUT());
 
-    expect(screen.queryByText(/free premium available/i)).not.toBeOnTheScreen();
-    expect(
-      screen.queryByText(/tap to upgrade your account/i),
-    ).not.toBeOnTheScreen();
+    expect(screen.queryByTestId(/premiumBox/i)).not.toBeOnTheScreen();
   });
 
   it('should navigate to paywall screen when user taps on "Tap to upgrade your account!"', () => {
@@ -74,7 +70,7 @@ describe('Home Screen', () => {
     };
     render(<Home navigation={navigation} />);
 
-    fireEvent.press(screen.getByText(/tap to upgrade your account/i));
+    fireEvent.press(screen.getByTestId(/premiumBox/i));
 
     expect(navigateSpy).toHaveBeenCalledWith('paywall');
   });
