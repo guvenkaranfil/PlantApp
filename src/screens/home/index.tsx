@@ -95,10 +95,23 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
 
       {getStartedQuestions.length > 0 && (
         <View>
-          <Text>Get Started</Text>
+          <Text style={styles.getStartedTitle}>Get Started</Text>
           <FlatList
+            horizontal
             data={getStartedQuestions}
-            renderItem={({item}) => <Text>{item.title}</Text>}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.questionCardsContent}
+            renderItem={({item}) => (
+              <View>
+                <Image
+                  source={{uri: item.image_uri}}
+                  style={styles.questionCardImage}
+                />
+                <View style={styles.questionCardContent}>
+                  <Text style={styles.questionCardLabel}>{item.title}</Text>
+                </View>
+              </View>
+            )}
           />
         </View>
       )}
@@ -113,6 +126,13 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
   );
 }
 
+const calculateAspectRatio = (
+  originalWidth: number,
+  originalHeight: number,
+) => {
+  return Number((originalWidth / originalHeight).toFixed(2));
+};
+
 const {width} = Dimensions.get('window');
 const originalWidth = 375;
 const originalHeight = 135;
@@ -125,6 +145,11 @@ const premiumBoxAspectRatio = Number(
   (premiumBoxOriginalWidth / premiumOriginalHeight).toFixed(2),
 );
 const premiumBoxHeight = (width - 48) / premiumBoxAspectRatio;
+
+const questionCardImageWidth = (width - 24 - 10) / 1.5;
+const aspectRatioQuestionCardImage = calculateAspectRatio(260, 184);
+const questionCardImageHeight =
+  questionCardImageWidth / aspectRatioQuestionCardImage;
 
 const styles = StyleSheet.create({
   container: {
@@ -183,5 +208,30 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: width - 48,
     height: premiumBoxHeight,
+  },
+  getStartedTitle: {
+    paddingLeft: 24,
+    paddingBottom: 20,
+    fontSize: 15,
+    color: '#13231B',
+    fontFamily: 'Rubik-Medium',
+  },
+  questionCardsContent: {
+    gap: 10,
+    paddingLeft: 24,
+  },
+  questionCardImage: {
+    width: questionCardImageWidth,
+    height: questionCardImageHeight,
+    borderRadius: 12,
+  },
+  questionCardContent: {
+    position: 'absolute',
+    top: questionCardImageHeight / 1.7,
+    padding: 14,
+  },
+  questionCardLabel: {
+    color: '#ffffff',
+    fontFamily: 'Rubik-Medium',
   },
 });
