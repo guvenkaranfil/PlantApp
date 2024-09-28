@@ -14,6 +14,7 @@ export class ImageResources {
   static readonly background: ImageURISource = require("../../../src/assets/images/background.png");
   static readonly featuredbackground: ImageURISource = require("../../../src/assets/images/featuredBackground.png");
   static readonly getstartedtree: ImageURISource = require("../../../src/assets/images/getStartedTree.png");
+  static readonly homeheader: ImageURISource = require("../../../src/assets/images/homeHeader.png");
   static readonly onboardingfirstbackground: ImageURISource = require("../../../src/assets/images/onboardingFirstBackground.png");
   static readonly onboardingsecondbackground: ImageURISource = require("../../../src/assets/images/onboardingSecondBackground.png");
   static readonly onboardingsecondcontent: ImageURISource = require("../../../src/assets/images/onboardingSecondContent.png");
