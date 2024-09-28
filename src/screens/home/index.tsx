@@ -1,4 +1,11 @@
-import {FlatList, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Page from '../../components/Page';
 import greeting from './greeting';
@@ -7,9 +14,10 @@ import {fetchGetStartedQuestions, GetStartedQuestion} from '../../api';
 
 type HomeProps = {
   getTime?: Date;
+  navigation: any;
 };
 
-export default function Home({getTime = new Date()}: HomeProps) {
+export default function Home({getTime = new Date(), navigation}: HomeProps) {
   const isUserPremium = useAppSelector(
     state => state.userReducer.isUserPremium,
   );
@@ -27,6 +35,10 @@ export default function Home({getTime = new Date()}: HomeProps) {
     });
   }, []);
 
+  const goToPaywall = () => {
+    navigation.navigate('paywall');
+  };
+
   return (
     <Page offsetTop={10}>
       <View style={styles.container}>
@@ -42,10 +54,10 @@ export default function Home({getTime = new Date()}: HomeProps) {
         />
 
         {!isUserPremium && (
-          <View>
+          <Pressable onPress={goToPaywall}>
             <Text>Free Premium Available</Text>
             <Text>Tap to upgrade your account!</Text>
-          </View>
+          </Pressable>
         )}
 
         {getStartedQuestions.length > 0 && (

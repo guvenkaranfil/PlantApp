@@ -66,6 +66,19 @@ describe('Home Screen', () => {
     ).not.toBeOnTheScreen();
   });
 
+  it('should navigate to paywall screen when user taps on "Tap to upgrade your account!"', () => {
+    store.dispatch(updateUserPremium(false));
+    const navigateSpy = jest.fn();
+    const navigation = {
+      navigate: navigateSpy,
+    };
+    render(<Home navigation={navigation} />);
+
+    fireEvent.press(screen.getByText(/tap to upgrade your account/i));
+
+    expect(navigateSpy).toHaveBeenCalledWith('paywall');
+  });
+
   it('should fetch "Get Started" questions from API and display them', async () => {
     const questions = [
       {
