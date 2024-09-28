@@ -1,5 +1,5 @@
 import {Dimensions, Platform, StyleSheet} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Colors from '../../utils/Colors';
 import Sizes from '../../utils/Sizes';
 
 const calculateAspectRatio = (
@@ -68,8 +68,8 @@ export default StyleSheet.create({
     borderRadius: 12,
     marginHorizontal: 24,
     marginTop: 14,
-    backgroundColor: 'rgba(255,255,255,0.85)',
-    borderWidth: 0.2,
+    backgroundColor: 'rgba(255,255,255,0.95)',
+    borderWidth: 0.5,
     borderColor: 'rgba(60, 60, 67, 0.25)',
   },
   searchInput: {
