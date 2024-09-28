@@ -22,6 +22,7 @@ import {ImageResources} from '../../assets/Generated/ImageResources.g';
 import {Search} from '../../assets/icons';
 
 import styles from './styles';
+import GetStartedQuestions from './getStartedQuestions';
 
 type HomeProps = {
   getTime?: Date;
@@ -90,36 +91,17 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
         </Pressable>
       )}
 
-      {getStartedQuestions.length > 0 && (
-        <View>
-          <Text style={styles.getStartedTitle}>Get Started</Text>
-          <FlatList
-            horizontal
-            data={getStartedQuestions}
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.questionCardsContent}
-            renderItem={({item}) => (
-              <View>
-                <Image
-                  source={{uri: item.image_uri}}
-                  style={styles.questionCardImage}
-                />
-                <View style={styles.questionCardContent}>
-                  <Text style={styles.questionCardLabel}>{item.title}</Text>
-                </View>
-              </View>
-            )}
-          />
-        </View>
-      )}
-
       {categories && categories.data.length > 0 && (
         <FlatList
+          ListHeaderComponent={
+            <GetStartedQuestions data={getStartedQuestions} />
+          }
           style={styles.categories}
           contentContainerStyle={styles.categoryContent}
           data={categories.data}
           numColumns={2}
           columnWrapperStyle={styles.categoriesColumnWrapper}
+          showsVerticalScrollIndicator={false}
           renderItem={({item}) => (
             <Pressable style={styles.categoryCard}>
               <View style={styles.categoryTitleWrapper}>

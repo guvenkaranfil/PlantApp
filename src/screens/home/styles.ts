@@ -80,7 +80,8 @@ export default StyleSheet.create({
     color: Colors.text,
   },
   premiumBanner: {
-    marginVertical: 24,
+    marginTop: 24,
+    marginBottom: 12,
   },
   premiumBox: {
     alignSelf: 'center',
@@ -88,7 +89,7 @@ export default StyleSheet.create({
     height: premiumBoxHeight,
   },
   getStartedTitle: {
-    paddingLeft: 24,
+    paddingTop: 12,
     paddingBottom: 20,
     fontSize: 15,
     color: '#13231B',
@@ -96,7 +97,7 @@ export default StyleSheet.create({
   },
   questionCardsContent: {
     gap: 10,
-    paddingLeft: 24,
+    marginBottom: 24,
   },
   questionCardImage: {
     width: questionCardImageWidth,
@@ -116,7 +117,7 @@ export default StyleSheet.create({
     marginTop: 24,
   },
   categoryContent: {
-    paddingHorizontal: 24,
+    paddingLeft: 24,
   },
   categoriesColumnWrapper: {
     justifyContent: 'space-between',
@@ -126,13 +127,13 @@ export default StyleSheet.create({
     width: categoryCardWidth,
     height: categoryCardWidth,
     backgroundColor: Colors.white,
-    borderWidth: Platform.OS === 'ios' ? 0.2 : 0.5,
+    borderWidth: Platform.OS === 'ios' ? 1 : 0.5,
     borderColor: 'rgba(60, 60, 67, 0.1)',
     borderRadius: 12,
   },
   categoryImage: {
     flex: 1,
-    resizeMode: 'contain',
+    right: 0,
   },
   categoryTitleWrapper: {
     zIndex: 999,
