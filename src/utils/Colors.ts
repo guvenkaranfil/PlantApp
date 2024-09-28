@@ -4,4 +4,6 @@ export default {
   white: '#ffffff',
 
   greenishGray: '#597165',
+  greenishWhite: '#FDFFFE',
+  darkIndigo: '#13231B40',
 };

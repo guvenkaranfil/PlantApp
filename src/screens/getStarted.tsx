@@ -7,14 +7,22 @@ import {
   Text,
   View,
 } from 'react-native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import Page from '../components/Page';
 import Sizes from '../utils/Sizes';
 import Colors from '../utils/Colors';
 import {ImageResources} from '../assets/Generated/ImageResources.g';
+import {StackParamList} from '../navigation/StackParamList';
 
-export default function GetStarted() {
-  const startOnBoarding = () => {};
+interface GetStartedProps {
+  navigation: NativeStackNavigationProp<StackParamList, 'getStarted'>;
+}
+
+export default function GetStarted({navigation}: GetStartedProps) {
+  const startOnBoarding = () => {
+    navigation.replace('onboarding');
+  };
 
   const openTermsAndUse = () => {};
 
