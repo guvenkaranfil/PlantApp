@@ -1,5 +1,5 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
+import React, {useState} from 'react';
 import Page from '../../components/Page';
 import greeting from './greeting';
 
@@ -8,6 +8,8 @@ type HomeProps = {
 };
 
 export default function Home({getTime = new Date()}: HomeProps) {
+  const [searchKeyword, setsearchKeyword] = useState('');
+
   return (
     <Page offsetTop={10}>
       <View style={styles.container}>
@@ -15,6 +17,12 @@ export default function Home({getTime = new Date()}: HomeProps) {
           <Text>Hi, plant lover!</Text>
           <Text>{greeting(getTime.getHours(), getTime.getMinutes())}</Text>
         </View>
+
+        <TextInput
+          placeholder="Search for plants"
+          value={searchKeyword}
+          onChangeText={setsearchKeyword}
+        />
       </View>
     </Page>
   );

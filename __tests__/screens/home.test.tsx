@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, screen} from '../../.jest/helper/testUtils';
+import {fireEvent, render, screen} from '../../.jest/helper/testUtils';
 
 import Home from '../../src/screens/home';
 
@@ -29,5 +29,15 @@ describe('Home Screen', () => {
     rerender(<Home getTime={eveningDate} />);
 
     expect(screen.getByText(/good evening/i)).toBeTruthy();
+  });
+
+  it('should render "Search for plants" search field', () => {
+    render(<Home />);
+    const searchField = screen.getByPlaceholderText(/search for plants/i);
+    expect(searchField).toBeOnTheScreen();
+
+    fireEvent.changeText(searchField, 'Monstera');
+
+    expect(searchField).toHaveProp('value', 'Monstera');
   });
 });
