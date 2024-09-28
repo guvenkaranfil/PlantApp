@@ -1,19 +1,19 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {StyleProp, StyleSheet, ViewStyle} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 interface IPage {
   offsetTop?: number;
+  pageStyle?: StyleProp<ViewStyle> | undefined;
   children: React.ReactNode;
 }
 
-export default function Page({children, offsetTop = 0}: IPage) {
-  const insets = useSafeAreaInsets();
-
+export default function Page({children, pageStyle, offsetTop = 0}: IPage) {
   return (
-    <View style={[styles.container, {paddingTop: insets.top + offsetTop}]}>
+    <SafeAreaView
+      style={[styles.container, {paddingTop: offsetTop}, pageStyle]}>
       {children}
-    </View>
+    </SafeAreaView>
   );
 }
 
