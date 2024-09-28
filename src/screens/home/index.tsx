@@ -1,19 +1,31 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
-import React, {useState} from 'react';
+import {FlatList, StyleSheet, Text, TextInput, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import Page from '../../components/Page';
 import greeting from './greeting';
 import {useAppSelector} from '../../store/hooks';
+import {fetchGetStartedQuestions, GetStartedQuestion} from '../../api';
 
 type HomeProps = {
   getTime?: Date;
 };
 
 export default function Home({getTime = new Date()}: HomeProps) {
-  const [searchKeyword, setsearchKeyword] = useState('');
-
   const isUserPremium = useAppSelector(
     state => state.userReducer.isUserPremium,
   );
+  const [searchKeyword, setsearchKeyword] = useState('');
+  const [getStartedQuestions, setgetStartedQuestions] = useState<
+    GetStartedQuestion[]
+  >([]);
+
+  useEffect(() => {
+    fetchGetStartedQuestions().then(response => {
+      if (response instanceof Error) {
+      } else {
+        setgetStartedQuestions(response);
+      }
+    });
+  }, []);
 
   return (
     <Page offsetTop={10}>
@@ -33,6 +45,16 @@ export default function Home({getTime = new Date()}: HomeProps) {
           <View>
             <Text>Free Premium Available</Text>
             <Text>Tap to upgrade your account!</Text>
+          </View>
+        )}
+
+        {getStartedQuestions.length > 0 && (
+          <View>
+            <Text>Get Started</Text>
+            <FlatList
+              data={getStartedQuestions}
+              renderItem={({item}) => <Text>{item.title}</Text>}
+            />
           </View>
         )}
       </View>

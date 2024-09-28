@@ -1,9 +1,10 @@
 import React from 'react';
-import {fireEvent, render, screen} from '../../.jest/helper/testUtils';
+import {fireEvent, render, screen, waitFor} from '../../.jest/helper/testUtils';
 
 import Home from '../../src/screens/home';
 import {store} from '../../src/store';
 import {updateUserPremium} from '../../src/store/slices/user';
+import * as api from '../../src/api';
 
 describe('Home Screen', () => {
   it('should render home screen without any error or warning', () => {
@@ -57,5 +58,49 @@ describe('Home Screen', () => {
 
     expect(screen.queryByText(/free premium available/i)).not.toBeTruthy();
     expect(screen.queryByText(/tap to upgrade your account/i)).not.toBeTruthy();
+  });
+
+  it('should fetch "Get Started" questions from API and display them', async () => {
+    const questions = [
+      {
+        id: 1,
+        title: 'How to identify plants?',
+        subtitle: 'Life Style',
+        image_uri:
+          'https://firebasestorage.googleapis.com/v0/b/flora---plant-identifier.appspot.com/o/public%2FCard.png?alt=media',
+        uri: 'https://plantapp.app/blog/identifying-plant-in-10-steps/',
+        order: 1,
+      },
+      {
+        id: 2,
+        title: 'Differences Between Species and Varieties?',
+        subtitle: 'Plant Identify',
+        image_uri:
+          'https://firebasestorage.googleapis.com/v0/b/flora---plant-identifier.appspot.com/o/public%2Fcard2.png?alt=media',
+        uri: 'https://plantapp.app/blog/differences-between-species-and-varieties/',
+        order: 2,
+      },
+      {
+        id: 3,
+        title: 'The reasons why the same plant can look different?',
+        subtitle: 'Life Style',
+        image_uri:
+          'https://firebasestorage.googleapis.com/v0/b/flora---plant-identifier.appspot.com/o/public%2FCard3.png?alt=media',
+        uri: 'https://plantapp.app/blog/same-seeds-but-different-looking-plants/',
+        order: 3,
+      },
+    ];
+    const fetchGetStartedQuestionsSpy = jest
+      .spyOn(api, 'fetchGetStartedQuestions')
+      .mockResolvedValue(questions);
+    render(<Home />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/get started/i)).toBeTruthy();
+      questions.map(question => {
+        expect(screen.getByText(question.title)).toBeTruthy();
+      });
+    });
+    expect(fetchGetStartedQuestionsSpy).toHaveBeenCalledTimes(1);
   });
 });
