@@ -2,6 +2,7 @@ import {
   FlatList,
   Image,
   ImageBackground,
+  Keyboard,
   Pressable,
   Text,
   TextInput,
@@ -115,6 +116,7 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
               />
             </Pressable>
           )}
+          onScroll={Keyboard.dismiss}
         />
       )}
     </Page>
