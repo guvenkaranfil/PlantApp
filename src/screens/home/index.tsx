@@ -2,6 +2,7 @@ import {StyleSheet, Text, TextInput, View} from 'react-native';
 import React, {useState} from 'react';
 import Page from '../../components/Page';
 import greeting from './greeting';
+import {useAppSelector} from '../../store/hooks';
 
 type HomeProps = {
   getTime?: Date;
@@ -9,6 +10,10 @@ type HomeProps = {
 
 export default function Home({getTime = new Date()}: HomeProps) {
   const [searchKeyword, setsearchKeyword] = useState('');
+
+  const isUserPremium = useAppSelector(
+    state => state.userReducer.isUserPremium,
+  );
 
   return (
     <Page offsetTop={10}>
@@ -24,10 +29,12 @@ export default function Home({getTime = new Date()}: HomeProps) {
           onChangeText={setsearchKeyword}
         />
 
-        <View>
-          <Text>Free Premium Available</Text>
-          <Text>Tap to upgrade your account!</Text>
-        </View>
+        {!isUserPremium && (
+          <View>
+            <Text>Free Premium Available</Text>
+            <Text>Tap to upgrade your account!</Text>
+          </View>
+        )}
       </View>
     </Page>
   );

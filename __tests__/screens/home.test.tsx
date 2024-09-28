@@ -2,6 +2,8 @@ import React from 'react';
 import {fireEvent, render, screen} from '../../.jest/helper/testUtils';
 
 import Home from '../../src/screens/home';
+import {store} from '../../src/store';
+import {updateUserPremium} from '../../src/store/slices/user';
 
 describe('Home Screen', () => {
   it('should render home screen without any error or warning', () => {
@@ -42,9 +44,18 @@ describe('Home Screen', () => {
   });
 
   it('should show premium banner if user is not subscribed', () => {
+    store.dispatch(updateUserPremium(false));
     render(<Home />);
 
     expect(screen.getByText(/free premium available/i)).toBeTruthy();
     expect(screen.getByText(/tap to upgrade your account/i)).toBeTruthy();
+  });
+
+  it('should not show premium banner if user is not subscribed', () => {
+    store.dispatch(updateUserPremium(true));
+    render(<Home />);
+
+    expect(screen.queryByText(/free premium available/i)).not.toBeTruthy();
+    expect(screen.queryByText(/tap to upgrade your account/i)).not.toBeTruthy();
   });
 });
