@@ -40,4 +40,11 @@ describe('Home Screen', () => {
 
     expect(searchField).toHaveProp('value', 'Monstera');
   });
+
+  it('should show premium banner if user is not subscribed', () => {
+    render(<Home />);
+
+    expect(screen.getByText(/free premium available/i)).toBeTruthy();
+    expect(screen.getByText(/tap to upgrade your account/i)).toBeTruthy();
+  });
 });

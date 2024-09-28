@@ -23,6 +23,11 @@ export default function Home({getTime = new Date()}: HomeProps) {
           value={searchKeyword}
           onChangeText={setsearchKeyword}
         />
+
+        <View>
+          <Text>Free Premium Available</Text>
+          <Text>Tap to upgrade your account!</Text>
+        </View>
       </View>
     </Page>
   );
