@@ -118,8 +118,24 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
 
       {categories && categories.data.length > 0 && (
         <FlatList
+          style={styles.categories}
+          contentContainerStyle={styles.categoryContent}
           data={categories.data}
-          renderItem={({item}) => <Text>{item.title}</Text>}
+          numColumns={2}
+          columnWrapperStyle={styles.categoriesColumnWrapper}
+          renderItem={({item}) => (
+            <Pressable style={styles.categoryCard}>
+              <View style={styles.categoryTitleWrapper}>
+                <Text lineBreakMode="head" style={styles.categoryTitle}>
+                  {item.title}
+                </Text>
+              </View>
+              <Image
+                source={{uri: item.image.url}}
+                style={styles.categoryImage}
+              />
+            </Pressable>
+          )}
         />
       )}
     </Page>
@@ -150,6 +166,8 @@ const questionCardImageWidth = (width - 24 - 10) / 1.5;
 const aspectRatioQuestionCardImage = calculateAspectRatio(260, 184);
 const questionCardImageHeight =
   questionCardImageWidth / aspectRatioQuestionCardImage;
+
+const categoryCardWidth = (width - 48 - 11) / 2;
 
 const styles = StyleSheet.create({
   container: {
@@ -232,6 +250,40 @@ const styles = StyleSheet.create({
   },
   questionCardLabel: {
     color: '#ffffff',
+    fontFamily: 'Rubik-Medium',
+  },
+  categories: {
+    marginTop: 24,
+  },
+  categoryContent: {
+    paddingHorizontal: 24,
+  },
+  categoriesColumnWrapper: {
+    justifyContent: 'space-between',
+  },
+  categoryCard: {
+    marginBottom: 16,
+    width: categoryCardWidth,
+    height: categoryCardWidth,
+    backgroundColor: Colors.white,
+    borderWidth: Platform.OS === 'ios' ? 0.2 : 0.5,
+    borderColor: 'rgba(60, 60, 67, 0.1)',
+    borderRadius: 12,
+  },
+  categoryImage: {
+    flex: 1,
+    resizeMode: 'contain',
+  },
+  categoryTitleWrapper: {
+    zIndex: 999,
+    position: 'absolute',
+    top: 16,
+    width: categoryCardWidth * 0.5,
+    paddingLeft: 16,
+  },
+  categoryTitle: {
+    fontSize: Sizes.h3,
+    color: Colors.text,
     fontFamily: 'Rubik-Medium',
   },
 });
