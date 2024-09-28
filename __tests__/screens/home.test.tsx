@@ -6,36 +6,40 @@ import {store} from '../../src/store';
 import {updateUserPremium} from '../../src/store/slices/user';
 import * as api from '../../src/api';
 
+const SUT = (getTime?: Date, navigation?: any) => (
+  <Home getTime={getTime} navigation={navigation ?? jest.fn()} />
+);
+
 describe('Home Screen', () => {
   it('should render home screen without any error or warning', () => {
-    render(<Home />);
+    render(SUT());
   });
 
   it('should display "Good Morning", "Good Afternoon", "Good Evening" welcome message', () => {
     const afterNoonDate = new Date();
     afterNoonDate.setHours(15); // 3 PM
     afterNoonDate.setMinutes(30); // 30 minutes
-    const {rerender} = render(<Home getTime={afterNoonDate} />);
+    const {rerender} = render(SUT(afterNoonDate));
 
     expect(screen.getByText(/good afternoon/i)).toBeOnTheScreen();
 
     const morningDate = new Date();
     morningDate.setHours(8); // 8 AM
     morningDate.setMinutes(0); // 30 minutes
-    rerender(<Home getTime={morningDate} />);
+    rerender(SUT(morningDate));
 
     expect(screen.getByText(/good morning/i)).toBeOnTheScreen();
 
     const eveningDate = new Date();
     eveningDate.setHours(20); // 8 PM
     eveningDate.setMinutes(45); // 30 minutes
-    rerender(<Home getTime={eveningDate} />);
+    rerender(SUT(eveningDate));
 
     expect(screen.getByText(/good evening/i)).toBeOnTheScreen();
   });
 
   it('should render "Search for plants" search field', () => {
-    render(<Home />);
+    render(SUT());
     const searchField = screen.getByPlaceholderText(/search for plants/i);
     expect(searchField).toBeOnTheScreen();
 
@@ -46,7 +50,7 @@ describe('Home Screen', () => {
 
   it('should show premium banner if user is not subscribed', () => {
     store.dispatch(updateUserPremium(false));
-    render(<Home />);
+    render(SUT());
 
     expect(screen.getByText(/free premium available/i)).toBeOnTheScreen();
     expect(screen.getByText(/tap to upgrade your account/i)).toBeOnTheScreen();
@@ -54,7 +58,7 @@ describe('Home Screen', () => {
 
   it('should not show premium banner if user is not subscribed', () => {
     store.dispatch(updateUserPremium(true));
-    render(<Home />);
+    render(SUT());
 
     expect(screen.queryByText(/free premium available/i)).not.toBeOnTheScreen();
     expect(
@@ -95,7 +99,7 @@ describe('Home Screen', () => {
     const fetchGetStartedQuestionsSpy = jest
       .spyOn(api, 'fetchGetStartedQuestions')
       .mockResolvedValue(questions);
-    render(<Home />);
+    render(SUT());
 
     await waitFor(() => {
       expect(screen.getByText(/get started/i)).toBeOnTheScreen();
