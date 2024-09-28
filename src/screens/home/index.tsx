@@ -10,7 +10,12 @@ import React, {useEffect, useState} from 'react';
 import Page from '../../components/Page';
 import greeting from './greeting';
 import {useAppSelector} from '../../store/hooks';
-import {fetchGetStartedQuestions, GetStartedQuestion} from '../../api';
+import {
+  CategoriesResponse,
+  fetchCategories,
+  fetchGetStartedQuestions,
+  GetStartedQuestion,
+} from '../../api';
 
 type HomeProps = {
   getTime?: Date;
@@ -25,6 +30,7 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
   const [getStartedQuestions, setgetStartedQuestions] = useState<
     GetStartedQuestion[]
   >([]);
+  const [categories, setcategories] = useState<CategoriesResponse>();
 
   useEffect(() => {
     fetchGetStartedQuestions().then(response => {
@@ -33,6 +39,12 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
         setgetStartedQuestions(response);
       }
     });
+
+    fetchCategories()
+      .then(response => {
+        setcategories(response);
+      })
+      .catch(() => {});
   }, []);
 
   const goToPaywall = () => {
@@ -68,6 +80,13 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
               renderItem={({item}) => <Text>{item.title}</Text>}
             />
           </View>
+        )}
+
+        {categories && categories.data.length > 0 && (
+          <FlatList
+            data={categories.data}
+            renderItem={({item}) => <Text>{item.title}</Text>}
+          />
         )}
       </View>
     </Page>
