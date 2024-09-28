@@ -8,4 +8,7 @@ module.exports = {
       extends: ['plugin:testing-library/react'],
     },
   ],
+  rules: {
+    'react-native/no-unused-styles': 'warn', // Set to 'warn' or 'error'
+  },
 };
