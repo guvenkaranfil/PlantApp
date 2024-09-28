@@ -9,6 +9,7 @@
     "start": "react-native start",
     "test": "jest",
     "generate:image": "img-res-gen --dir=./src/assets/images --out=./src/assets/Generated/ImageResources.g.ts --ts",
+    "generate:icons": "svgr ./src/assets/svgs -d ./src/assets/icons --native --icon - --ignore-existing",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -17,8 +18,10 @@
     "@reduxjs/toolkit": "^2.2.7",
     "react": "18.3.1",
     "react-native": "0.75.3",
+    "react-native-linear-gradient": "^2.8.3",
     "react-native-safe-area-context": "^4.11.0",
     "react-native-screens": "^3.34.0",
+    "react-native-svg": "^15.7.1",
     "react-redux": "^9.1.2"
   },
   "devDependencies": {
@@ -29,6 +32,7 @@
     "@react-native/eslint-config": "0.75.3",
     "@react-native/metro-config": "0.75.3",
     "@react-native/typescript-config": "0.75.3",
+    "@svgr/cli": "^8.1.0",
     "@testing-library/react-native": "^12.7.2",
     "@types/jest": "^29.5.13",
     "@types/react": "^18.2.6",

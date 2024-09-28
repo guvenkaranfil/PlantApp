@@ -12,8 +12,10 @@ import {ImageURISource} from "react-native";
 export class ImageResources {
   static readonly brush: ImageURISource = require("../../../src/assets/images/Brush.png");
   static readonly background: ImageURISource = require("../../../src/assets/images/background.png");
+  static readonly featuredbackground: ImageURISource = require("../../../src/assets/images/featuredBackground.png");
   static readonly getstartedtree: ImageURISource = require("../../../src/assets/images/getStartedTree.png");
   static readonly onboardingfirstbackground: ImageURISource = require("../../../src/assets/images/onboardingFirstBackground.png");
   static readonly onboardingsecondbackground: ImageURISource = require("../../../src/assets/images/onboardingSecondBackground.png");
   static readonly onboardingsecondcontent: ImageURISource = require("../../../src/assets/images/onboardingSecondContent.png");
+  static readonly paywallbackground: ImageURISource = require("../../../src/assets/images/paywallBackground.png");
 }
