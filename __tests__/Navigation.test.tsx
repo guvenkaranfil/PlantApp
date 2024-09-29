@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Navigation from '../src/navigation';
+import Navigation from '@navigation';
 import {fireEvent, screen} from '@testing-library/react-native';
 import {render} from '../.jest/helper/testUtils';
 

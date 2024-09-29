@@ -10,17 +10,17 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 
-import Page from '../../components/Page';
+import Page from '@components/Page';
 import greeting from './greeting';
-import {useAppSelector} from '../../store/hooks';
+import {useAppSelector} from '@store/hooks';
 import {
   CategoriesResponse,
   fetchCategories,
   fetchGetStartedQuestions,
   GetStartedQuestion,
-} from '../../api';
-import {ImageResources} from '../../assets/Generated/ImageResources.g';
-import {Search} from '../../assets/icons';
+} from '@api/index';
+import {ImageResources} from '@assets/Generated/ImageResources.g';
+import {Search} from '@assets/icons';
 
 import styles from './styles';
 import GetStartedQuestions from './getStartedQuestions';

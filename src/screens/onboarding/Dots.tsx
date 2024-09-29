@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-import Colors from '../../utils/Colors';
+import Colors from '@utils/Colors';
 
 interface IDots {
   numberOfDots: number;

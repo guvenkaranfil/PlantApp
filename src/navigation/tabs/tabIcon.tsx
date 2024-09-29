@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-import Colors from '../../utils/Colors';
+import Colors from '@utils/Colors';
 import styles from './styles';
 
 interface ITabIcon {

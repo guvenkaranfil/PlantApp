@@ -10,15 +10,15 @@ import {
   ViewToken,
 } from 'react-native';
 
-import Page from '../../components/Page';
+import Page from '@components/Page';
 import Dots from './Dots';
-import Sizes from '../../utils/Sizes';
-import Colors from '../../utils/Colors';
-import {ImageResources} from '../../assets/Generated/ImageResources.g';
+import Sizes from '@utils/Sizes';
+import Colors from '@utils/Colors';
+import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {IOnboardingData, onboardingDatas} from './datas';
 import OnboardingCarousel from './OnboardingCarousel';
 
-import {StackParamList} from '../../navigation/StackParamList';
+import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 interface OnboardingProps {

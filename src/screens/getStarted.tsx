@@ -9,11 +9,11 @@ import {
 } from 'react-native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-import Page from '../components/Page';
-import Sizes from '../utils/Sizes';
-import Colors from '../utils/Colors';
-import {ImageResources} from '../assets/Generated/ImageResources.g';
-import {StackParamList} from '../navigation/StackParamList';
+import Page from '@components/Page';
+import Sizes from '@utils/Sizes';
+import Colors from '@utils/Colors';
+import {ImageResources} from '@assets/Generated/ImageResources.g';
+import {StackParamList} from '@navigation/StackParamList';
 
 interface GetStartedProps {
   navigation: NativeStackNavigationProp<StackParamList, 'getStarted'>;

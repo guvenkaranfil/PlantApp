@@ -1,9 +1,9 @@
 import React from 'react';
 import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 
-import Sizes from '../../utils/Sizes';
-import Colors from '../../utils/Colors';
-import {ImageResources} from '../../assets/Generated/ImageResources.g';
+import Sizes from '@utils/Sizes';
+import Colors from '@utils/Colors';
+import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {IOnboardingData} from './datas';
 
 const screenWidth = Dimensions.get('window').width;

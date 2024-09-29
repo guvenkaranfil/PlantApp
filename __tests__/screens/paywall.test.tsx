@@ -1,7 +1,7 @@
 import React from 'react';
 import {fireEvent, screen} from '@testing-library/react-native';
 
-import Navigation from '../../src/navigation';
+import Navigation from '@navigation';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {render} from '../../.jest/helper/testUtils';
 

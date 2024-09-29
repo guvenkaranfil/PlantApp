@@ -10,17 +10,17 @@ import {
   Text,
   View,
 } from 'react-native';
-import {ImageResources} from '../../assets/Generated/ImageResources.g';
+import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import Sizes from '../../utils/Sizes';
-import Colors from '../../utils/Colors';
+import Sizes from '@utils/Sizes';
+import Colors from '@utils/Colors';
 import FeatureCard from './featureCard';
 
 import OfferOption from './offerOption';
 
 import {featuresData, offerOptions} from './staticDatas';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {StackParamList} from '../../navigation/StackParamList';
+import {StackParamList} from '@navigation/StackParamList';
 
 interface PaywallProps {
   navigation: NativeStackNavigationProp<StackParamList, 'paywall'>;

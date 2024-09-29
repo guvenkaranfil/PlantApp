@@ -2,8 +2,8 @@ import React, {ReactNode} from 'react';
 import {Platform, Pressable, StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import Colors from '../../utils/Colors';
-import Sizes from '../../utils/Sizes';
+import Colors from '@utils/Colors';
+import Sizes from '@utils/Sizes';
 
 export interface IOfferOption {
   id: number;

@@ -15,13 +15,13 @@ import {
   Healthcare as SvgDiagnose,
   Garden as SvgGarden,
   Profile as SvgProfile,
-} from '../../assets/icons';
+} from '@assets/icons';
 
-import Home from '../../screens/home';
-import Diagnose from '../../screens/diagnose';
-import Scanner from '../../screens/scanner';
-import MyGarden from '../../screens/myGarden';
-import Profile from '../../screens/profile';
+import Home from '@screens/home';
+import Diagnose from '@screens/diagnose';
+import Scanner from '@screens/scanner';
+import MyGarden from '@screens/myGarden';
+import Profile from '@screens/profile';
 
 const getTabBarIcon = (
   routeName: string,

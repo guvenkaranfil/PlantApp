@@ -1,4 +1,4 @@
-import {ImageResources} from '../../assets/Generated/ImageResources.g';
+import {ImageResources} from '@assets/Generated/ImageResources.g';
 
 export interface IOnboardingData {
   index: number;

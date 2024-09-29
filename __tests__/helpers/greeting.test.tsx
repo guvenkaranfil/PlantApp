@@ -1,4 +1,4 @@
-import getGreeting from '../../src/screens/home/greeting'; // Update with the actual file name
+import getGreeting from '@screens/home/greeting'; // Update with the actual file name
 
 describe('getGreeting', () => {
   test('should return "Good Morning! 🌞" between 5:00 AM and 11:59 AM', () => {
