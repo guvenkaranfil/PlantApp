@@ -60,7 +60,7 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
   };
 
   return (
-    <Page offsetTop={10} pageStyle={styles.container}>
+    <Page edges={['top']} offsetTop={10} pageStyle={styles.container}>
       <ImageBackground
         source={ImageResources.homeheader}
         style={styles.headerBackground}>
