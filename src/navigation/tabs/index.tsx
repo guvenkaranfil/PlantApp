@@ -47,7 +47,7 @@ const getTabBarIcon = (
 function MyTabBar({state, descriptors, navigation}: BottomTabBarProps) {
   const insets = useSafeAreaInsets();
   const TAB_BAR_SIZE = 64 + insets.bottom;
-  const SCANNER_OFFSET_TOP = TAB_BAR_SIZE / 2.5;
+  const SCANNER_OFFSET_TOP = (TAB_BAR_SIZE - insets.bottom) / 2.5;
   return (
     <View style={[styles.tabBar, {height: TAB_BAR_SIZE}]}>
       {state.routes.map((route, index) => {
