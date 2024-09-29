@@ -1,27 +1,26 @@
 import React from 'react';
-import {View, Pressable} from 'react-native';
+import {Pressable,View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+
+import {
+  Garden as SvgGarden,
+  Healthcare as SvgDiagnose,
+  Home as SvgHome,
+  Profile as SvgProfile,
+  Scanner as SvgScanner,
+} from '@assets/icons';
 import {
   BottomTabBarProps,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
+import Diagnose from '@screens/diagnose';
+import Home from '@screens/home';
+import MyGarden from '@screens/myGarden';
+import Profile from '@screens/profile';
+import Scanner from '@screens/scanner';
 
-import TabIcon from './tabIcon';
 import styles from './styles';
-
-import {
-  Scanner as SvgScanner,
-  Home as SvgHome,
-  Healthcare as SvgDiagnose,
-  Garden as SvgGarden,
-  Profile as SvgProfile,
-} from '../../assets/icons';
-
-import Home from '../../screens/home';
-import Diagnose from '../../screens/diagnose';
-import Scanner from '../../screens/scanner';
-import MyGarden from '../../screens/myGarden';
-import Profile from '../../screens/profile';
+import TabIcon from './tabIcon';
 
 const getTabBarIcon = (
   routeName: string,

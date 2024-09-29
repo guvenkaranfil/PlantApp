@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useRef,useState} from 'react';
 import {
   Dimensions,
   FlatList,
@@ -10,16 +10,16 @@ import {
   ViewToken,
 } from 'react-native';
 
-import Page from '../../components/Page';
-import Dots from './Dots';
-import Sizes from '../../utils/Sizes';
-import Colors from '../../utils/Colors';
-import {ImageResources} from '../../assets/Generated/ImageResources.g';
-import {IOnboardingData, onboardingDatas} from './datas';
-import OnboardingCarousel from './OnboardingCarousel';
-
-import {StackParamList} from '../../navigation/StackParamList';
+import {ImageResources} from '@assets/Generated/ImageResources.g';
+import Page from '@components/Page';
+import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import Colors from '@utils/Colors';
+import Sizes from '@utils/Sizes';
+
+import {IOnboardingData, onboardingDatas} from './datas';
+import Dots from './Dots';
+import OnboardingCarousel from './OnboardingCarousel';
 
 interface OnboardingProps {
   navigation: NativeStackNavigationProp<StackParamList, 'onboarding'>;

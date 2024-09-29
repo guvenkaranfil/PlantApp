@@ -1,4 +1,4 @@
-import {by, device, expect, element} from 'detox';
+import {by, device, element,expect} from 'detox';
 
 describe('Onboarding Flow', () => {
   beforeAll(async () => {

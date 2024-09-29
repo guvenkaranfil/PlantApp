@@ -1,7 +1,7 @@
 import React from 'react';
-import {fireEvent, render, screen} from '@testing-library/react-native';
 
-import GetStarted from '../../src/screens/getStarted';
+import GetStarted from '@screens/getStarted';
+import {fireEvent, render, screen} from '@testing-library/react-native';
 
 describe('Get Started Screen', () => {
   it('should renders without any warning or error', () => {

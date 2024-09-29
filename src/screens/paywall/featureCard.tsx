@@ -1,16 +1,17 @@
+import React from 'react';
 import {
+  Dimensions,
+  ImageBackground,
+  Platform,
   StyleProp,
   StyleSheet,
   Text,
   View,
   ViewStyle,
-  Dimensions,
-  ImageBackground,
-  Platform,
 } from 'react-native';
-import React from 'react';
-import {ImageResources} from '../../assets/Generated/ImageResources.g';
-import Colors from '../../utils/Colors';
+
+import {ImageResources} from '@assets/Generated/ImageResources.g';
+import Colors from '@utils/Colors';
 
 export interface IFeatureCard {
   viewStyle?: StyleProp<ViewStyle>;

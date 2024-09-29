@@ -2,10 +2,10 @@ import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import GetStarted from '@screens/getStarted';
+import Onboarding from '@screens/onboarding';
+import Paywall from '@screens/paywall';
 
-import GetStarted from '../screens/getStarted';
-import Onboarding from '../screens/onboarding';
-import Paywall from '../screens/paywall';
 import Tabs from './tabs';
 
 export const Stack = createNativeStackNavigator();

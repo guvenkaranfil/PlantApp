@@ -1,9 +1,9 @@
 import React from 'react';
-import {fireEvent, screen} from '@testing-library/react-native';
-
-import Navigation from '../../src/navigation';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {render} from '../../.jest/helper/testUtils';
+
+import Navigation from '@navigation/index';
+import {render} from '@src/.jest/helper/testUtils';
+import {fireEvent, screen} from '@testing-library/react-native';
 
 const Paywall = () => <Navigation initialRouteName="paywall" />;
 

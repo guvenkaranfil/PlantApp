@@ -1,10 +1,10 @@
 import React from 'react';
-import {fireEvent, render, screen, waitFor} from '../../.jest/helper/testUtils';
 
-import Home from '../../src/screens/home';
-import {store} from '../../src/store';
-import {updateUserPremium} from '../../src/store/slices/user';
-import * as api from '../../src/api';
+import * as api from '@api/index';
+import Home from '@screens/home';
+import {fireEvent, render, screen, waitFor} from '@src/.jest/helper/testUtils';
+import {store} from '@store/index';
+import {updateUserPremium} from '@store/slices/user';
 
 const SUT = (getTime?: Date, navigation?: any) => (
   <Home getTime={getTime} navigation={navigation ?? jest.fn()} />

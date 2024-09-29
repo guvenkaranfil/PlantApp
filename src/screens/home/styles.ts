@@ -1,6 +1,7 @@
 import {Dimensions, Platform, StyleSheet} from 'react-native';
-import Colors from '../../utils/Colors';
-import Sizes from '../../utils/Sizes';
+
+import Colors from '@utils/Colors';
+import Sizes from '@utils/Sizes';
 
 const calculateAspectRatio = (
   originalWidth: number,
