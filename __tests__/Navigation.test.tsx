@@ -1,9 +1,8 @@
 import React from 'react';
 
-import Navigation from '@navigation';
+import Navigation from '@navigation/index';
+import {render} from '@src/.jest/helper/testUtils';
 import {fireEvent, screen} from '@testing-library/react-native';
-
-import {render} from '../.jest/helper/testUtils';
 
 describe('App', () => {
   it('should follow onboarding flow with starting get started, onboarding and paywall screens', () => {
