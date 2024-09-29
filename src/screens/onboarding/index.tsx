@@ -18,9 +18,16 @@ import {ImageResources} from '../../assets/Generated/ImageResources.g';
 import {IOnboardingData, onboardingDatas} from './datas';
 import OnboardingCarousel from './OnboardingCarousel';
 
+import {StackParamList} from '../../navigation/StackParamList';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
+interface OnboardingProps {
+  navigation: NativeStackNavigationProp<StackParamList, 'onboarding'>;
+}
+
 const screenWidth = Dimensions.get('window').width;
 
-export default function Onboarding() {
+export default function Onboarding({navigation}: OnboardingProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const flatListRef = useRef<any>(null);
 
@@ -45,6 +52,10 @@ export default function Onboarding() {
     }
   };
 
+  const onCarouselScrollToIndexFailed = () => {
+    navigation.replace('paywall');
+  };
+
   return (
     <ImageBackground source={ImageResources.background} style={styles.flex}>
       <Page pageStyle={{backgroundColor: Colors.greenishWhite}} offsetTop={15}>
@@ -61,6 +72,7 @@ export default function Onboarding() {
             viewabilityConfig={{
               itemVisiblePercentThreshold: 50,
             }}
+            onScrollToIndexFailed={onCarouselScrollToIndexFailed}
             ref={flatListRef}
           />
 

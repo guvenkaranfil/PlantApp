@@ -8,4 +8,5 @@ export default {
   greenishGray: '#597165',
   greenishWhite: '#FDFFFE',
   darkIndigo: '#13231B40',
+  lighGray: '#979798',
 };

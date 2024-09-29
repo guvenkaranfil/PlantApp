@@ -1,15 +1,23 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-export interface userState {}
+export interface userState {
+  isUserPremium: boolean;
+}
 
-const initialState: userState = {};
+const initialState: userState = {
+  isUserPremium: false,
+};
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    updateUserPremium: (state, action) => {
+      state.isUserPremium = action.payload;
+    },
+  },
 });
 
-export const {} = userSlice.actions;
+export const {updateUserPremium} = userSlice.actions;
 
 export default userSlice.reducer;
