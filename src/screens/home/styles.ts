@@ -110,6 +110,7 @@ export default StyleSheet.create({
     padding: 14,
   },
   questionCardLabel: {
+    fontSize: 15,
     color: '#ffffff',
     fontFamily: 'Rubik-Medium',
   },
