@@ -8,9 +8,15 @@ module.exports = {
       extends: ['plugin:testing-library/react'],
     },
   ],
-  plugins: ['import-alias'],
+  plugins: ['import-alias', 'simple-import-sort'],
   rules: {
-    'react-native/no-unused-styles': 'warn', // Set to 'warn' or 'error'
+    'react-native/no-unused-styles': 'warn',
+    'simple-import-sort/imports': [
+      'warn',
+      {
+        groups: [['^react$', '^[a-z]'], ['^@']],
+      },
+    ],
     'import-alias/import-alias': [
       'warn',
       {
