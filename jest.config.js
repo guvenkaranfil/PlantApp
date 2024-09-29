@@ -8,4 +8,5 @@ module.exports = {
     // For pnpm you need to use inlcude `(?!(?:.pnpm/)?` part like this:
     // 'node_modules/(?!(?:.pnpm/)?((jest-)?@?react-native|@react-native-community|@react-navigation))',
   ],
+  testPathIgnorePatterns: ['./e2e/*'],
 };

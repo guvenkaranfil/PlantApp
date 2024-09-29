@@ -47,6 +47,7 @@ export default function Onboarding({navigation}: OnboardingProps) {
     let nextIndex = activeIndex + 1;
 
     if (nextIndex >= onboardingDatas.length) {
+      navigation.replace('paywall');
     } else if (flatListRef.current) {
       flatListRef.current.scrollToIndex({index: nextIndex, animated: true});
     }

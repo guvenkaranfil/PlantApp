@@ -10,7 +10,11 @@
     "test": "jest",
     "generate:image": "img-res-gen --dir=./src/assets/images --out=./src/assets/Generated/ImageResources.g.ts --ts",
     "generate:icons": "svgr ./src/assets/svgs -d ./src/assets/icons --native --icon - --ignore-existing",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "e2e:test-debug:ios": "detox test --configuration ios.sim.debug --reuse",
+    "e2e:test-release:ios": "detox test --configuration ios.sim.release",
+    "e2e:build-debug:ios": "detox build --configuration ios.sim.debug",
+    "e2e:build-release:ios": "detox build --configuration ios.sim.release"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.6.1",
@@ -39,6 +43,7 @@
     "@types/react": "^18.2.6",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.6.3",
+    "detox": "^20.27.2",
     "eslint": "^8.19.0",
     "eslint-plugin-testing-library": "^6.3.0",
     "husky": "^8.0.0",
