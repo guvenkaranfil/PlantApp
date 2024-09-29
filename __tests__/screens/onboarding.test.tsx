@@ -1,8 +1,8 @@
 import React from 'react';
-import {fireEvent, render, screen} from '@testing-library/react-native';
 
 import Onboarding from '@screens/onboarding';
 import {onboardingDatas} from '@screens/onboarding/datas';
+import {fireEvent, render, screen} from '@testing-library/react-native';
 
 const actualNav = jest.requireActual('@react-navigation/native');
 const mockNavigation = {

@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, Text, FlatList, Image} from 'react-native';
+import {FlatList, Image,Text, View} from 'react-native';
 
 import {GetStartedQuestion} from '@api/index';
+
 import styles from './styles';
 
 const GetStartedQuestions = ({data}: {data: GetStartedQuestion[]}) => {

@@ -1,3 +1,4 @@
+import React, {useEffect, useState} from 'react';
 import {
   FlatList,
   Image,
@@ -8,11 +9,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
 
-import Page from '@components/Page';
-import greeting from './greeting';
-import {useAppSelector} from '@store/hooks';
 import {
   CategoriesResponse,
   fetchCategories,
@@ -21,9 +18,12 @@ import {
 } from '@api/index';
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {Search} from '@assets/icons';
+import Page from '@components/Page';
+import {useAppSelector} from '@store/hooks';
 
-import styles from './styles';
 import GetStartedQuestions from './getStartedQuestions';
+import greeting from './greeting';
+import styles from './styles';
 
 type HomeProps = {
   getTime?: Date;

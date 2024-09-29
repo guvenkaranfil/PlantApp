@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-
 import {
   Dimensions,
   FlatList,
@@ -10,17 +9,17 @@ import {
   Text,
   View,
 } from 'react-native';
-import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import Sizes from '@utils/Sizes';
-import Colors from '@utils/Colors';
-import FeatureCard from './featureCard';
 
-import OfferOption from './offerOption';
-
-import {featuresData, offerOptions} from './staticDatas';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {StackParamList} from '@navigation/StackParamList';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import Colors from '@utils/Colors';
+import Sizes from '@utils/Sizes';
+
+import FeatureCard from './featureCard';
+import OfferOption from './offerOption';
+import {featuresData, offerOptions} from './staticDatas';
 
 interface PaywallProps {
   navigation: NativeStackNavigationProp<StackParamList, 'paywall'>;

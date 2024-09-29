@@ -1,4 +1,5 @@
-import {Scanner, Indicator, Leaf} from '@assets/icons';
+import {Indicator, Leaf,Scanner} from '@assets/icons';
+
 import {IFeatureCard} from './featureCard';
 import {IOfferOption} from './offerOption';
 
