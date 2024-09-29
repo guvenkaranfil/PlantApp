@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": false,
+  "json.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  }
+}
