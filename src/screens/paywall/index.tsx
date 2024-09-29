@@ -19,9 +19,19 @@ import FeatureCard from './featureCard';
 import OfferOption from './offerOption';
 
 import {featuresData, offerOptions} from './staticDatas';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {StackParamList} from '../../navigation/StackParamList';
 
-export default function Paywall() {
+interface PaywallProps {
+  navigation: NativeStackNavigationProp<StackParamList, 'paywall'>;
+}
+
+export default function Paywall({navigation}: PaywallProps) {
   const [selectedOfferID, setSelectedOfferID] = useState(2);
+
+  const goToHome = () => {
+    navigation.navigate('tabs');
+  };
 
   const insets = useSafeAreaInsets();
   return (
@@ -30,6 +40,14 @@ export default function Paywall() {
         source={ImageResources.paywallbackground}
         style={styles.backgroundImage}
       />
+
+      <Pressable
+        testID="closeButton"
+        hitSlop={{top: 48, right: 48, bottom: 48, left: 48}}
+        onPress={goToHome}
+        style={[styles.closeButton, {top: 16 + insets.top}]}>
+        <Text style={styles.closeLabel}>X</Text>
+      </Pressable>
 
       <View
         style={{
@@ -177,5 +195,21 @@ const styles = StyleSheet.create({
   contractLbl: {
     fontSize: 11,
     color: 'rgba(255,255,255,0.52)',
+  },
+  closeButton: {
+    top: 8,
+    right: 19,
+    position: 'absolute',
+    width: 24,
+    height: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 12,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+  },
+  closeLabel: {
+    fontSize: Sizes.h5,
+    fontFamily: 'Rubik-SemiBold',
+    color: Colors.white,
   },
 });
