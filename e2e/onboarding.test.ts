@@ -2,18 +2,6 @@ import {by, device, element, expect} from 'detox';
 
 describe('Onboarding Flow', () => {
   beforeAll(async () => {
-    await device.setStatusBar({
-      time: '01:50',
-      dataNetwork: 'wifi',
-      wifiMode: 'active',
-      wifiBars: '3',
-      cellularMode: 'active',
-      cellularBars: '4',
-      operatorName: 'PlantApp',
-      batteryState: 'discharging',
-      batteryLevel: '100',
-    });
-
     await device.launchApp();
   });
 
@@ -24,7 +12,6 @@ describe('Onboarding Flow', () => {
   it('should complete onboarding and navigate to home', async () => {
     const getStartedButton = element(by.text(/get started/i));
     await expect(getStartedButton).toBeVisible();
-    await device.takeScreenshot('get-started-screen');
     await getStartedButton.tap();
 
     const continueButton = element(by.text(/continue/i));
@@ -53,5 +40,10 @@ describe('Onboarding Flow', () => {
 
     await closeButton.tap();
     await expect(welcomeMessage).toBeVisible();
+
+    await element(by.text(/profile/i)).tap();
+    await element(by.text(/get started/i)).tap();
+
+    await device.takeScreenshot('get-started-screen');
   });
 });

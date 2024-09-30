@@ -15,7 +15,9 @@
     "e2e:test-debug:ios": "rm -rf ./__tests__/artifacts/current && rm -rf ./__tests__/artifacts/diff && detox test --configuration ios.sim.debug --reuse --artifacts-location ./artifacts/",
     "e2e:test-release:ios": "detox test --configuration ios.sim.release",
     "e2e:build-debug:ios": "detox build --configuration ios.sim.debug",
-    "e2e:build-release:ios": "detox build --configuration ios.sim.release"
+    "e2e:build-release:ios": "detox build --configuration ios.sim.release",
+    "compare:ui": "IS_DETOX=true yarn run e2e:test-debug:ios && ./compare_images.sh",
+    "update:baseline": "rm -rf rm -rf ./__tests__/artifacts/baseline/* && cp ./__tests__/artifacts/current/* ./__tests__/artifacts/baseline"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.6.1",
