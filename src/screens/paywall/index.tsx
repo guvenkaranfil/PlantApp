@@ -15,6 +15,7 @@ import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import PlantButton from '@src/components/plantButton';
 import PlantText from '@src/components/plantText';
+import { setStorage } from '@src/storage';
 import colors from '@src/theme/colors';
 import fontSizes from '@src/theme/fontSizes';
 import offsets from '@src/theme/offsets';
@@ -31,6 +32,7 @@ export default function Paywall({navigation}: PaywallProps) {
   const [selectedOfferID, setSelectedOfferID] = useState(2);
 
   const goToHome = () => {
+    setStorage('onboardingCompleted', true);
     navigation.navigate('tabs');
   };
 

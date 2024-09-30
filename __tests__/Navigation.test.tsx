@@ -2,10 +2,14 @@ import React from 'react';
 
 import Navigation from '@navigation/index';
 import {render} from '@src/.jest/helper/testUtils';
-import {store} from '@src/store';
+import * as localStorage from '@src/storage';
 import {fireEvent, screen} from '@testing-library/react-native';
 
 describe('App', () => {
+  beforeEach(() => {
+    localStorage.storage.clearAll();
+  });
+
   it('should follow onboarding flow with starting get started, onboarding, paywall, home screens', () => {
     render(<Navigation />);
 
@@ -29,6 +33,16 @@ describe('App', () => {
 
     const homeWelcomeText = screen.getByText(/hi, plant lover/i);
     expect(homeWelcomeText).toBeOnTheScreen();
-    expect(store.getState().userReducer.onbardingCompleted).toBe(true);
+    expect(localStorage.getStorage('onboardingCompleted')).toBe(true);
+  });
+
+  it('should not re-enter onboarding flow if onboarding is completed', async () => {
+    const setStorageSpy = jest.spyOn(localStorage, 'setStorage');
+    localStorage.setStorage('onboardingCompleted', true);
+    render(<Navigation />);
+
+    const homeWelcomeText = screen.getByText(/hi, plant lover/i);
+    expect(homeWelcomeText).toBeOnTheScreen();
+    expect(setStorageSpy).toHaveBeenCalledTimes(1);
   });
 });
