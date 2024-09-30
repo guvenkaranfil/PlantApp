@@ -6,6 +6,7 @@ import PlantButton from '@src/components/plantButton';
 import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
 import fontSizes from '@src/theme/fontSizes';
+import offsets from '@src/theme/offsets';
 
 export interface IOfferOption {
   id: number;
@@ -135,13 +136,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white.main,
   },
   labels: {
-    marginLeft: 12,
+    marginLeft: offsets._12,
   },
   promotion: {
-    paddingTop: 5,
-    paddingBottom: 8,
-    paddingLeft: 12,
-    paddingRight: 9,
+    paddingTop: offsets._5,
+    paddingBottom: offsets._8,
+    paddingLeft: offsets._12,
+    paddingRight: offsets._9,
     position: 'absolute',
     right: 0,
     top: -1,

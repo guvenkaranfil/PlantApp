@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 import colors from '@src/theme/colors';
+import offsets from '@src/theme/offsets';
 
 export default StyleSheet.create({
   alignCenter: {
@@ -14,7 +15,7 @@ export default StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   tabBarItem: {
-    paddingTop: 6,
+    paddingTop: offsets._6,
     flex: 1,
     alignItems: 'center',
   },

@@ -20,6 +20,7 @@ import {Search} from '@assets/icons';
 import Page from '@components/Page';
 import PlantButton from '@src/components/plantButton';
 import PlantText from '@src/components/plantText';
+import colors from '@src/theme/colors';
 import {useAppSelector} from '@store/hooks';
 
 import GetStartedQuestions from './getStartedQuestions';
@@ -85,7 +86,7 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
         <View style={styles.search}>
           <Search width={20} height={20} style={styles.searchIcon} />
           <TextInput
-            placeholderTextColor="#AFAFAF"
+            placeholderTextColor={colors.gray.mediumDark}
             style={styles.searchInput}
             placeholder="Search for plants"
             value={searchKeyword}

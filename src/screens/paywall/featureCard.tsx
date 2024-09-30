@@ -12,6 +12,7 @@ import {
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
+import offsets from '@src/theme/offsets';
 
 export interface IFeatureCard {
   viewStyle?: StyleProp<ViewStyle>;
@@ -62,7 +63,7 @@ const {width} = Dimensions.get('window');
 const CONTAINER_WIDTH = (width - 30 - 24 - 16) / 2;
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    padding: offsets._16,
     width: CONTAINER_WIDTH,
     height: 130,
     borderRadius: 14,

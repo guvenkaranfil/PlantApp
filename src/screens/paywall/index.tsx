@@ -17,6 +17,7 @@ import PlantButton from '@src/components/plantButton';
 import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
 import fontSizes from '@src/theme/fontSizes';
+import offsets from '@src/theme/offsets';
 
 import FeatureCard from './featureCard';
 import OfferOption from './offerOption';
@@ -164,7 +165,7 @@ const styles = StyleSheet.create({
   },
   header: {
     marginBottom: 20,
-    paddingLeft: 24,
+    paddingLeft: offsets._24,
   },
   premiumTitle: {
     fontSize: fontSizes.h3,

@@ -2,6 +2,7 @@ import {Dimensions, Platform, StyleSheet} from 'react-native';
 
 import colors from '@src/theme/colors';
 import fontSizes from '@src/theme/fontSizes';
+import offsets from '@src/theme/offsets';
 
 const calculateAspectRatio = (
   originalWidth: number,
@@ -40,15 +41,15 @@ export default StyleSheet.create({
     height: backgroundHeight,
   },
   welcome: {
-    paddingLeft: 24,
+    paddingLeft: offsets._24,
   },
   searchIcon: {
     alignSelf: 'center',
   },
   search: {
     flexDirection: 'row',
-    paddingLeft: 12,
-    paddingRight: 48,
+    paddingLeft: offsets._12,
+    paddingRight: offsets._48,
     width: width - 48,
     position: 'absolute',
     bottom: 14,
@@ -61,7 +62,7 @@ export default StyleSheet.create({
     borderColor: colors.black.grayTranslucent25,
   },
   searchInput: {
-    marginLeft: 12,
+    marginLeft: offsets._12,
     flex: 1,
     fontSize: fontSizes.h5,
     fontFamily: 'Rubik-Regular',
@@ -69,7 +70,7 @@ export default StyleSheet.create({
   },
   premiumBanner: {
     marginTop: 24,
-    marginBottom: 12,
+    marginBottom: offsets._12,
   },
   premiumBox: {
     alignSelf: 'center',
@@ -77,8 +78,8 @@ export default StyleSheet.create({
     height: premiumBoxHeight,
   },
   getStartedTitle: {
-    paddingTop: 12,
-    paddingBottom: 20,
+    paddingTop: offsets._12,
+    paddingBottom: offsets._20,
     fontSize: fontSizes.mediumLarge,
     color: colors.green.dark,
     fontFamily: 'Rubik-Medium',
@@ -95,7 +96,7 @@ export default StyleSheet.create({
   questionCardContent: {
     position: 'absolute',
     top: questionCardImageHeight / 1.7,
-    padding: 14,
+    padding: offsets._14,
   },
   questionCardLabel: {
     fontSize: fontSizes.mediumLarge,
@@ -106,7 +107,7 @@ export default StyleSheet.create({
     marginTop: 24,
   },
   categoryContent: {
-    paddingLeft: 24,
+    paddingLeft: offsets._24,
   },
   categoriesColumnWrapper: {
     justifyContent: 'space-between',
@@ -129,6 +130,6 @@ export default StyleSheet.create({
     position: 'absolute',
     top: 16,
     width: categoryCardWidth * 0.5,
-    paddingLeft: 16,
+    paddingLeft: offsets._16,
   },
 });
