@@ -29,10 +29,11 @@ const Background = ({
   children: ReactNode;
 }) => {
   const selectStateStyle = isSelected ? styles.active : styles.inactive;
+  const linearColors = [...colors.green.paywallOfferButtonLinear];
 
   return isSelected ? (
     <LinearGradient
-      colors={colors.green.paywallOfferButtonLinear}
+      colors={linearColors}
       start={{x: 0, y: 0}}
       end={{x: 1, y: 0}}
       style={[styles.container, selectStateStyle]}>
