@@ -1,7 +1,9 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-import Colors from '@utils/Colors';
+import colors from '@src/theme/colors';
+
+
 
 interface IDots {
   numberOfDots: number;
@@ -23,7 +25,7 @@ const Dots = ({numberOfDots, activeIndex}: IDots) => {
               width: isActive ? activeDotSize : inactiveDotSize,
               height: isActive ? activeDotSize : inactiveDotSize,
               borderRadius: isActive ? activeDotSize / 2 : inactiveDotSize / 2,
-              backgroundColor: isActive ? Colors.text : Colors.darkIndigo,
+              backgroundColor: isActive ? colors.green.dark : colors.black.indigo,
             }}
           />
         );

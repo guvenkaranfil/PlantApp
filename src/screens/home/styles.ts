@@ -1,6 +1,6 @@
 import {Dimensions, Platform, StyleSheet} from 'react-native';
 
-import Colors from '@utils/Colors';
+import colors from '@src/theme/colors';
 import Sizes from '@utils/Sizes';
 
 const calculateAspectRatio = (
@@ -33,7 +33,7 @@ const categoryCardWidth = (width - 48 - 11) / 2;
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FBFAFA',
+    backgroundColor: colors.white.off,
   },
   headerBackground: {
     width: width,
@@ -44,13 +44,13 @@ export default StyleSheet.create({
   },
   welcomeLabel: {
     fontSize: Sizes.h3,
-    color: Colors.text,
+    color: colors.green.dark,
     fontFamily: 'Rubik-Regular',
   },
   greetingLabel: {
     paddingTop: Platform.OS === 'ios' ? 6 : 0,
     fontSize: Sizes.h2,
-    color: Colors.text,
+    color: colors.green.dark,
     fontFamily: 'Rubik-Medium',
     letterSpacing: 0.35,
     lineHeight: 30,
@@ -69,16 +69,16 @@ export default StyleSheet.create({
     borderRadius: 12,
     marginHorizontal: 24,
     marginTop: 14,
-    backgroundColor: 'rgba(255,255,255,0.95)',
+    backgroundColor: colors.white.translucent95,
     borderWidth: 0.5,
-    borderColor: 'rgba(60, 60, 67, 0.25)',
+    borderColor: colors.black.grayTranslucent25,
   },
   searchInput: {
     marginLeft: 12,
     flex: 1,
     fontSize: Sizes.h3,
     fontFamily: 'Rubik-Regular',
-    color: Colors.text,
+    color: colors.green.dark,
   },
   premiumBanner: {
     marginTop: 24,
@@ -93,7 +93,7 @@ export default StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 20,
     fontSize: 15,
-    color: '#13231B',
+    color: colors.green.dark,
     fontFamily: 'Rubik-Medium',
   },
   questionCardsContent: {
@@ -112,7 +112,7 @@ export default StyleSheet.create({
   },
   questionCardLabel: {
     fontSize: 15,
-    color: '#ffffff',
+    color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },
   categories: {
@@ -128,9 +128,9 @@ export default StyleSheet.create({
     marginBottom: 16,
     width: categoryCardWidth,
     height: categoryCardWidth,
-    backgroundColor: Colors.white,
+    backgroundColor: colors.white.main,
     borderWidth: Platform.OS === 'ios' ? 1 : 0.5,
-    borderColor: 'rgba(60, 60, 67, 0.1)',
+    borderColor: colors.black.grayTranslucent10,
     borderRadius: 12,
   },
   categoryImage: {
@@ -146,7 +146,7 @@ export default StyleSheet.create({
   },
   categoryTitle: {
     fontSize: Sizes.h3,
-    color: Colors.text,
+    color: colors.green.dark,
     fontFamily: 'Rubik-Medium',
   },
 });

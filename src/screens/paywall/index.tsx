@@ -14,7 +14,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import Colors from '@utils/Colors';
+import colors from '@src/theme/colors';
 import Sizes from '@utils/Sizes';
 
 import FeatureCard from './featureCard';
@@ -125,7 +125,7 @@ const backgroundHeight = width / aspectRatio;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#101E17',
+    backgroundColor: colors.green.darker,
   },
   backgroundImage: {
     width: width,
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     paddingLeft: 24,
   },
   appTitle: {
-    color: Colors.white,
+    color: colors.white.main,
     fontSize: Sizes.h1,
     fontFamily: 'Rubik-ExtraBold',
   },
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     lineHeight: 30,
   },
   promotion: {
-    color: Colors.white,
+    color: colors.white.main,
     fontSize: Sizes.h3,
     opacity: 0.7,
     letterSpacing: 0.38,
@@ -169,12 +169,12 @@ const styles = StyleSheet.create({
     height: 56,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.background,
+    backgroundColor: colors.green.main,
     borderRadius: 12,
   },
   startLabel: {
     fontSize: Sizes.h3,
-    color: Colors.white,
+    color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },
   offerDetailLabel: {
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 9,
     fontFamily: 'Rubik-Light',
-    color: 'rgba(255,255,255,0.52)',
+    color: colors.white.translucent52,
     lineHeight: 12,
   },
   contracts: {
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
   },
   contractLbl: {
     fontSize: 11,
-    color: 'rgba(255,255,255,0.52)',
+    color: colors.white.translucent52,
   },
   closeButton: {
     top: 8,
@@ -204,11 +204,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 12,
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    backgroundColor: colors.black.translucent40,
   },
   closeLabel: {
     fontSize: Sizes.h5,
     fontFamily: 'Rubik-SemiBold',
-    color: Colors.white,
+    color: colors.white.main,
   },
 });

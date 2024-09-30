@@ -2,7 +2,7 @@ import React from 'react';
 import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 
 import {ImageResources} from '@assets/Generated/ImageResources.g';
-import Colors from '@utils/Colors';
+import colors from '@src/theme/colors';
 import Sizes from '@utils/Sizes';
 
 import {IOnboardingData} from './datas';
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   welcome: {
-    color: Colors.text,
+    color: colors.green.dark,
     fontSize: Sizes.h1,
     fontFamily: 'Rubik-Medium',
     lineHeight: 36,
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   carouselFooterWrapper: {
     width: screenWidth - 48,
     height: 120,
-    backgroundColor: '#FDFFFE',
+    backgroundColor: colors.green.white,
     position: 'absolute',
     bottom: 0,
   },

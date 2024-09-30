@@ -12,7 +12,7 @@ import {ImageResources} from '@assets/Generated/ImageResources.g';
 import Page from '@components/Page';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import Colors from '@utils/Colors';
+import colors from '@src/theme/colors';
 import Sizes from '@utils/Sizes';
 
 interface GetStartedProps {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   welcome: {
-    color: Colors.text,
+    color: colors.green.dark,
     fontSize: Sizes.h1,
     fontFamily: 'Rubik-Regular',
   },
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   promotion: {
     paddingTop: 8,
-    color: Colors.text,
+    color: colors.green.dark,
     opacity: 0.7,
     fontSize: Sizes.h3,
   },
@@ -105,12 +105,12 @@ const styles = StyleSheet.create({
     height: 56,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.background,
+    backgroundColor: colors.green.main,
     borderRadius: 12,
   },
   startLabel: {
     fontSize: Sizes.h4,
-    color: Colors.white,
+    color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },
   footer: {
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   contractLabel: {
     textAlign: 'center',
     fontSize: Sizes.h5,
-    color: Colors.greenishGray,
+    color: colors.green.gray,
     fontFamily: 'Rubik-Regular',
   },
   underline: {

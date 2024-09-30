@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text,View} from 'react-native';
 
-import Colors from '@utils/Colors';
+import colors from '@src/theme/colors';
 
 import styles from './styles';
 
@@ -18,13 +18,13 @@ const TabIcon = ({focused, icon, label}: ITabIcon) => {
       <Icon
         width={25}
         height={25}
-        fill={focused ? Colors.background : '#BDBDBD'}
+        fill={focused ? colors.green.main : colors.gray.mediumLight}
       />
       <Text
         style={[
           styles.tabBarLabel,
           {
-            color: focused ? Colors.background : Colors.lighGray,
+            color: focused ? colors.green.main : colors.gray.light,
           },
         ]}>
         {label}

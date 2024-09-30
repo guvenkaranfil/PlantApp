@@ -2,7 +2,7 @@ import React, {ReactNode} from 'react';
 import {Platform, Pressable, StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import Colors from '@utils/Colors';
+import colors from '@src/theme/colors';
 import Sizes from '@utils/Sizes';
 
 export interface IOfferOption {
@@ -31,12 +31,7 @@ const Background = ({
 
   return isSelected ? (
     <LinearGradient
-      colors={[
-        'rgba(40, 175, 110, 0)',
-        'rgba(40, 175, 110, 0.05)',
-        'rgba(40, 175, 110, 0.08)',
-        'rgba(40, 175, 110, 0.15)',
-      ]}
+      colors={colors.green.paywallOfferButtonLinear}
       start={{x: 0, y: 0}}
       end={{x: 1, y: 0}}
       style={[styles.container, selectStateStyle]}>
@@ -88,16 +83,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 60,
     borderRadius: 14,
-    backgroundColor: 'rgba(255,255,255,0.05)',
+    backgroundColor: colors.white.translucent05,
   },
   active: {
     borderWidth: 1.5,
-    borderColor: Colors.background,
-    backgroundColor: '#1E1E1E',
+    borderColor: colors.green.main,
+    backgroundColor: colors.black.gray,
   },
   inactive: {
     borderWidth: 0.5,
-    borderColor: 'rgba(255,255,255,0.3)',
+    borderColor: colors.white.translucent30,
   },
   squareStyle: {
     marginVertical: 5,
@@ -108,16 +103,16 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   activeSquareStyle: {
-    backgroundColor: Colors.background,
+    backgroundColor: colors.green.main,
   },
   inactiveSquareStyle: {
-    backgroundColor: 'rgba(255,255,255,0.08)',
+    backgroundColor: colors.white.translucent08,
   },
   dot: {
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: Colors.white,
+    backgroundColor: colors.white.main,
   },
   labels: {
     marginLeft: 12,
@@ -129,7 +124,7 @@ const styles = StyleSheet.create({
   },
   secondaryLabel: {
     marginTop: Platform.OS === 'ios' ? 2 : 0,
-    color: 'rgba(255,255,255,0.7)',
+    color: colors.white.translucent07,
     fontSize: 12,
     fontFamily: 'Rubik-Regular',
     lineHeight: 12,
@@ -142,7 +137,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     top: -1,
-    backgroundColor: Colors.background,
+    backgroundColor: colors.green.main,
     borderBottomLeftRadius: 20,
     borderTopRightRadius: 12,
     fontSize: Sizes.h5,
@@ -150,7 +145,7 @@ const styles = StyleSheet.create({
   },
   promotionLabel: {
     fontSize: 12,
-    color: Colors.white,
+    color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },
 });
