@@ -8,6 +8,7 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
+    "tsc": "tsc --noEmit",
     "generate:image": "img-res-gen --dir=./src/assets/images --out=./src/assets/Generated/ImageResources.g.ts --ts",
     "generate:icons": "svgr ./src/assets/svgs -d ./src/assets/icons --native --icon - --ignore-existing",
     "prepare": "husky install",

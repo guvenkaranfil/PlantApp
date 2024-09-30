@@ -28,6 +28,8 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install dependencies
         run: yarn install
+      - name: Run Typescript Checks
+        run: yarn tsc
       - name: Run lint
         run: yarn lint
       - name: Run Tests
