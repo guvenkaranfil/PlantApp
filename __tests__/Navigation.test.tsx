@@ -2,10 +2,11 @@ import React from 'react';
 
 import Navigation from '@navigation/index';
 import {render} from '@src/.jest/helper/testUtils';
+import {store} from '@src/store';
 import {fireEvent, screen} from '@testing-library/react-native';
 
 describe('App', () => {
-  it('should follow onboarding flow with starting get started, onboarding and paywall screens', () => {
+  it('should follow onboarding flow with starting get started, onboarding, paywall, home screens', () => {
     render(<Navigation />);
 
     const getStartedButton = screen.getByText(/get started/i);
@@ -20,5 +21,14 @@ describe('App', () => {
 
     const premiumText = screen.getByText(/premium/i);
     expect(premiumText).toBeOnTheScreen();
+
+    const closeButton = screen.getByTestId('closeButton');
+    expect(closeButton).toBeOnTheScreen();
+
+    fireEvent.press(closeButton);
+
+    const homeWelcomeText = screen.getByText(/hi, plant lover/i);
+    expect(homeWelcomeText).toBeOnTheScreen();
+    expect(store.getState().userReducer.onbardingCompleted).toBe(true);
   });
 });
