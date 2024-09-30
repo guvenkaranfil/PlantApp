@@ -1,6 +1,7 @@
 import React from 'react';
-import {Text,View} from 'react-native';
+import {View} from 'react-native';
 
+import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
 
 import styles from './styles';
@@ -20,15 +21,13 @@ const TabIcon = ({focused, icon, label}: ITabIcon) => {
         height={25}
         fill={focused ? colors.green.main : colors.gray.mediumLight}
       />
-      <Text
-        style={[
-          styles.tabBarLabel,
-          {
-            color: focused ? colors.green.main : colors.gray.light,
-          },
-        ]}>
-        {label}
-      </Text>
+      <PlantText
+        label={label}
+        paddingTop={5}
+        fontSize="medium"
+        fontFamily="Rubik-Regular"
+        colorName={focused ? 'green.main' : 'gray.light'}
+      />
     </View>
   );
 };

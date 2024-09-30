@@ -9,7 +9,12 @@ interface IPlantTextBase {
   colorName?: IColors;
   fontFamily?: IFonts;
   fontSize?: IFontSizes;
+  top?: number;
+  marginHorizontal?: number;
   paddingTop?: number;
+  paddingBottom?: number;
+  letterSpacing?: number;
+  lineHeight?: number;
   textAlign?: TextStyle['textAlign'];
   children?: React.ReactNode | undefined;
 }
@@ -31,8 +36,13 @@ export default function PlantText({
   colorName,
   fontFamily,
   fontSize,
+  top,
+  marginHorizontal,
   paddingTop,
+  paddingBottom,
   textAlign,
+  letterSpacing,
+  lineHeight,
   children,
 }: IPlantText) {
   const colorMapping = colorName?.split('.') as [
@@ -45,11 +55,16 @@ export default function PlantText({
     : undefined;
 
   const labelStyle = {
+    top,
+    marginHorizontal,
     paddingTop,
+    paddingBottom,
     color: colorValue,
-    fontFamily: fontFamily,
+    fontFamily: fontFamily ?? undefined,
     fontSize: fontSize ? fontSizes[fontSize] : undefined,
     textAlign,
+    letterSpacing,
+    lineHeight,
   };
 
   return <Text style={labelStyle}>{children ?? label}</Text>;

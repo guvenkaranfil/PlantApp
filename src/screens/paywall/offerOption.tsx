@@ -1,8 +1,9 @@
 import React, {ReactNode} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import PlantButton from '@src/components/plantButton';
+import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
 import fontSizes from '@src/theme/fontSizes';
 
@@ -64,13 +65,30 @@ export default function OfferOption({
         </View>
 
         <View style={styles.labels}>
-          <Text style={styles.primaryLabel}>{primaryLabel}</Text>
-          <Text style={styles.secondaryLabel}>{secondaryLabel}</Text>
+          <PlantText
+            paddingBottom={Platform.OS === 'ios' ? 2 : 0}
+            fontSize="h5"
+            colorName="white.main"
+            fontFamily="Rubik-Medium"
+            label={primaryLabel}
+          />
+          <PlantText
+            fontSize="smallLarge"
+            colorName="white.translucent07"
+            fontFamily="Rubik-Regular"
+            label={secondaryLabel}
+            lineHeight={12}
+          />
         </View>
 
         {promotion && (
           <View style={styles.promotion}>
-            <Text style={styles.promotionLabel}>{promotion}</Text>
+            <PlantText
+              fontSize="smallLarge"
+              colorName="white.main"
+              fontFamily="Rubik-Medium"
+              label={promotion}
+            />
           </View>
         )}
       </Background>
@@ -119,18 +137,6 @@ const styles = StyleSheet.create({
   labels: {
     marginLeft: 12,
   },
-  primaryLabel: {
-    fontSize: fontSizes.h5,
-    color: 'white',
-    fontFamily: 'Rubik-Medium',
-  },
-  secondaryLabel: {
-    marginTop: Platform.OS === 'ios' ? 2 : 0,
-    color: colors.white.translucent07,
-    fontSize: fontSizes.smallLarge,
-    fontFamily: 'Rubik-Regular',
-    lineHeight: 12,
-  },
   promotion: {
     paddingTop: 5,
     paddingBottom: 8,
@@ -144,10 +150,5 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 12,
     fontSize: fontSizes.small,
     zIndex: 999,
-  },
-  promotionLabel: {
-    fontSize: fontSizes.smallLarge,
-    color: colors.white.main,
-    fontFamily: 'Rubik-Medium',
   },
 });
