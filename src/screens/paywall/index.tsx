@@ -15,7 +15,9 @@ import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import PlantButton from '@src/components/plantButton';
 import PlantText from '@src/components/plantText';
-import { setStorage } from '@src/storage';
+import {getStorage} from '@src/storage';
+import {useAppDispatch} from '@src/store/hooks';
+import {updateCompleteOnboarding} from '@src/store/slices/user';
 import colors from '@src/theme/colors';
 import fontSizes from '@src/theme/fontSizes';
 import offsets from '@src/theme/offsets';
@@ -30,10 +32,14 @@ interface PaywallProps {
 
 export default function Paywall({navigation}: PaywallProps) {
   const [selectedOfferID, setSelectedOfferID] = useState(2);
+  const dispatch = useAppDispatch();
 
   const goToHome = () => {
-    setStorage('onboardingCompleted', true);
-    navigation.navigate('tabs');
+    if (!getStorage('onboardingCompleted')) {
+      dispatch(updateCompleteOnboarding(true));
+    } else {
+      navigation.navigate('tabs');
+    }
   };
 
   const insets = useSafeAreaInsets();
