@@ -1,3 +1,16 @@
+export type IFontSizes =
+  | 'extraSmall'
+  | 'small'
+  | 'smallLarge'
+  | 'medium'
+  | 'body'
+  | 'mediumLarge'
+  | 'h5'
+  | 'h4'
+  | 'h3'
+  | 'h2'
+  | 'h1';
+
 export default {
   extraSmall: 9, // Extra small text, e.g., footnotes
   small: 11, // Small text, e.g., captions
