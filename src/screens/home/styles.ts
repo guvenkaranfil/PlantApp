@@ -1,7 +1,7 @@
 import {Dimensions, Platform, StyleSheet} from 'react-native';
 
-import Colors from '@utils/Colors';
-import Sizes from '@utils/Sizes';
+import colors from '@src/theme/colors';
+import fontSizes from '@src/theme/fontSizes';
 
 const calculateAspectRatio = (
   originalWidth: number,
@@ -33,7 +33,7 @@ const categoryCardWidth = (width - 48 - 11) / 2;
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FBFAFA',
+    backgroundColor: colors.white.off,
   },
   headerBackground: {
     width: width,
@@ -43,14 +43,14 @@ export default StyleSheet.create({
     paddingLeft: 24,
   },
   welcomeLabel: {
-    fontSize: Sizes.h3,
-    color: Colors.text,
+    fontSize: fontSizes.h5,
+    color: colors.green.dark,
     fontFamily: 'Rubik-Regular',
   },
   greetingLabel: {
     paddingTop: Platform.OS === 'ios' ? 6 : 0,
-    fontSize: Sizes.h2,
-    color: Colors.text,
+    fontSize: fontSizes.h3,
+    color: colors.green.dark,
     fontFamily: 'Rubik-Medium',
     letterSpacing: 0.35,
     lineHeight: 30,
@@ -69,16 +69,16 @@ export default StyleSheet.create({
     borderRadius: 12,
     marginHorizontal: 24,
     marginTop: 14,
-    backgroundColor: 'rgba(255,255,255,0.95)',
+    backgroundColor: colors.white.translucent95,
     borderWidth: 0.5,
-    borderColor: 'rgba(60, 60, 67, 0.25)',
+    borderColor: colors.black.grayTranslucent25,
   },
   searchInput: {
     marginLeft: 12,
     flex: 1,
-    fontSize: Sizes.h3,
+    fontSize: fontSizes.h5,
     fontFamily: 'Rubik-Regular',
-    color: Colors.text,
+    color: colors.green.dark,
   },
   premiumBanner: {
     marginTop: 24,
@@ -92,8 +92,8 @@ export default StyleSheet.create({
   getStartedTitle: {
     paddingTop: 12,
     paddingBottom: 20,
-    fontSize: 15,
-    color: '#13231B',
+    fontSize: fontSizes.mediumLarge,
+    color: colors.green.dark,
     fontFamily: 'Rubik-Medium',
   },
   questionCardsContent: {
@@ -111,8 +111,8 @@ export default StyleSheet.create({
     padding: 14,
   },
   questionCardLabel: {
-    fontSize: 15,
-    color: '#ffffff',
+    fontSize: fontSizes.mediumLarge,
+    color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },
   categories: {
@@ -128,9 +128,9 @@ export default StyleSheet.create({
     marginBottom: 16,
     width: categoryCardWidth,
     height: categoryCardWidth,
-    backgroundColor: Colors.white,
+    backgroundColor: colors.white.main,
     borderWidth: Platform.OS === 'ios' ? 1 : 0.5,
-    borderColor: 'rgba(60, 60, 67, 0.1)',
+    borderColor: colors.black.grayTranslucent10,
     borderRadius: 12,
   },
   categoryImage: {
@@ -145,8 +145,8 @@ export default StyleSheet.create({
     paddingLeft: 16,
   },
   categoryTitle: {
-    fontSize: Sizes.h3,
-    color: Colors.text,
+    fontSize: fontSizes.h5,
+    color: colors.green.dark,
     fontFamily: 'Rubik-Medium',
   },
 });

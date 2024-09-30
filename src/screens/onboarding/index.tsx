@@ -14,8 +14,8 @@ import {ImageResources} from '@assets/Generated/ImageResources.g';
 import Page from '@components/Page';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import Colors from '@utils/Colors';
-import Sizes from '@utils/Sizes';
+import colors from '@src/theme/colors';
+import fontSizes from '@src/theme/fontSizes';
 
 import {IOnboardingData, onboardingDatas} from './datas';
 import Dots from './Dots';
@@ -59,7 +59,7 @@ export default function Onboarding({navigation}: OnboardingProps) {
 
   return (
     <ImageBackground source={ImageResources.background} style={styles.flex}>
-      <Page pageStyle={{backgroundColor: Colors.greenishWhite}} offsetTop={15}>
+      <Page pageStyle={{backgroundColor: colors.green.white}} offsetTop={15}>
         <View style={styles.content}>
           <FlatList
             testID="list"
@@ -107,12 +107,12 @@ const styles = StyleSheet.create({
     height: 56,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.background,
+    backgroundColor: colors.green.main,
     borderRadius: 12,
   },
   startLabel: {
-    fontSize: Sizes.h4,
-    color: Colors.white,
+    fontSize: fontSizes.mediumLarge,
+    color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },
   footer: {

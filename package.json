@@ -8,10 +8,11 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
+    "tsc": "tsc --noEmit",
     "generate:image": "img-res-gen --dir=./src/assets/images --out=./src/assets/Generated/ImageResources.g.ts --ts",
     "generate:icons": "svgr ./src/assets/svgs -d ./src/assets/icons --native --icon - --ignore-existing",
     "prepare": "husky install",
-    "e2e:test-debug:ios": "detox test --configuration ios.sim.debug --reuse",
+    "e2e:test-debug:ios": "rm -rf ./__tests__/artifacts/current && rm -rf ./__tests__/artifacts/diff && detox test --configuration ios.sim.debug --reuse --artifacts-location ./artifacts/",
     "e2e:test-release:ios": "detox test --configuration ios.sim.release",
     "e2e:build-debug:ios": "detox build --configuration ios.sim.debug",
     "e2e:build-release:ios": "detox build --configuration ios.sim.release"

@@ -61,6 +61,9 @@ module.exports = {
     'ios.sim.debug': {
       device: 'simulator',
       app: 'ios.debug',
+      artifacts: {
+        pathBuilder:'./DetoxPathBuilder.js',
+      }
     },
     'ios.sim.release': {
       device: 'simulator',

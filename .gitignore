@@ -72,3 +72,8 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Image comparaison artifacts
+/__tests__/artifacts/comparison_log*
+/__tests__/artifacts/current*
+/__tests__/artifacts/diff*

@@ -11,7 +11,8 @@ import {
 } from 'react-native';
 
 import {ImageResources} from '@assets/Generated/ImageResources.g';
-import Colors from '@utils/Colors';
+import colors from '@src/theme/colors';
+import fontSizes from '@src/theme/fontSizes';
 
 export interface IFeatureCard {
   viewStyle?: StyleProp<ViewStyle>;
@@ -63,21 +64,21 @@ const styles = StyleSheet.create({
     height: 36,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(0,0,0,0.24)',
+    backgroundColor: colors.black.translucent24,
 
     borderRadius: 8,
   },
   primaryLabel: {
-    fontSize: 20,
+    fontSize: fontSizes.h4,
     fontFamily: 'Rubik-Medium',
     color: 'white',
     letterSpacing: 0.38,
   },
   secondaryLabel: {
     paddingTop: Platform.OS === 'ios' ? 2 : 0,
-    fontSize: 13,
+    fontSize: fontSizes.medium,
     fontFamily: 'Rubik-Regular',
-    color: Colors.white,
+    color: colors.white.main,
     opacity: 0.7,
     lineHeight: 18,
   },

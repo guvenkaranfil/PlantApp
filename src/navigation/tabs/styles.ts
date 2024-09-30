@@ -1,14 +1,17 @@
 import {StyleSheet} from 'react-native';
 
+import colors from '@src/theme/colors';
+import fontSizes from '@src/theme/fontSizes';
+
 export default StyleSheet.create({
   alignCenter: {
     alignItems: 'center',
   },
   tabBar: {
     flexDirection: 'row',
-    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+    backgroundColor: colors.white.translucent92,
     borderTopWidth: 0.5,
-    borderTopColor: 'rgba(19, 35, 27, 0.1)',
+    borderTopColor: colors.green.translucent10,
     justifyContent: 'space-evenly',
   },
   tabBarItem: {
@@ -17,7 +20,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   scannerWrapper: {
-    backgroundColor: '#5DC794',
+    backgroundColor: colors.green.light,
     width: 64,
     height: 64,
     alignItems: 'center',
@@ -29,12 +32,12 @@ export default StyleSheet.create({
     height: 56,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#28AF6E',
+    backgroundColor: colors.green.main,
     borderRadius: 32,
   },
   tabBarLabel: {
     paddingTop: 5,
-    fontSize: 13,
+    fontSize: fontSizes.medium,
     fontFamily: 'Rubik-Regular',
   },
 });

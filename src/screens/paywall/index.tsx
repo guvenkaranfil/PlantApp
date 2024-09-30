@@ -14,8 +14,8 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import Colors from '@utils/Colors';
-import Sizes from '@utils/Sizes';
+import colors from '@src/theme/colors';
+import fontSizes from '@src/theme/fontSizes';
 
 import FeatureCard from './featureCard';
 import OfferOption from './offerOption';
@@ -125,7 +125,7 @@ const backgroundHeight = width / aspectRatio;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#101E17',
+    backgroundColor: colors.green.darker,
   },
   backgroundImage: {
     width: width,
@@ -137,18 +137,18 @@ const styles = StyleSheet.create({
     paddingLeft: 24,
   },
   appTitle: {
-    color: Colors.white,
-    fontSize: Sizes.h1,
+    color: colors.white.main,
+    fontSize: fontSizes.h2,
     fontFamily: 'Rubik-ExtraBold',
   },
   premiumTitle: {
-    fontSize: Sizes.h2,
+    fontSize: fontSizes.h3,
     fontFamily: 'Rubik-Regular',
     lineHeight: 30,
   },
   promotion: {
-    color: Colors.white,
-    fontSize: Sizes.h3,
+    color: colors.white.main,
+    fontSize: fontSizes.h5,
     opacity: 0.7,
     letterSpacing: 0.38,
   },
@@ -169,21 +169,21 @@ const styles = StyleSheet.create({
     height: 56,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.background,
+    backgroundColor: colors.green.main,
     borderRadius: 12,
   },
   startLabel: {
-    fontSize: Sizes.h3,
-    color: Colors.white,
+    fontSize: fontSizes.h5,
+    color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },
   offerDetailLabel: {
     marginHorizontal: 24,
     paddingTop: 8,
     textAlign: 'center',
-    fontSize: 9,
+    fontSize: fontSizes.extraSmall,
     fontFamily: 'Rubik-Light',
-    color: 'rgba(255,255,255,0.52)',
+    color: colors.white.translucent52,
     lineHeight: 12,
   },
   contracts: {
@@ -192,8 +192,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   contractLbl: {
-    fontSize: 11,
-    color: 'rgba(255,255,255,0.52)',
+    fontSize: fontSizes.small,
+    color: colors.white.translucent52,
   },
   closeButton: {
     top: 8,
@@ -204,11 +204,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 12,
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    backgroundColor: colors.black.translucent40,
   },
   closeLabel: {
-    fontSize: Sizes.h5,
+    fontSize: fontSizes.small,
     fontFamily: 'Rubik-SemiBold',
-    color: Colors.white,
+    color: colors.white.main,
   },
 });
