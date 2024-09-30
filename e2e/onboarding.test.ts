@@ -1,7 +1,19 @@
-import {by, device, element,expect} from 'detox';
+import {by, device, element, expect} from 'detox';
 
 describe('Onboarding Flow', () => {
   beforeAll(async () => {
+    await device.setStatusBar({
+      time: '01:50',
+      dataNetwork: 'wifi',
+      wifiMode: 'active',
+      wifiBars: '3',
+      cellularMode: 'active',
+      cellularBars: '4',
+      operatorName: 'PlantApp',
+      batteryState: 'discharging',
+      batteryLevel: '100',
+    });
+
     await device.launchApp();
   });
 
@@ -12,13 +24,17 @@ describe('Onboarding Flow', () => {
   it('should complete onboarding and navigate to home', async () => {
     const getStartedButton = element(by.text(/get started/i));
     await expect(getStartedButton).toBeVisible();
+    await device.takeScreenshot('get-started-screen');
     await getStartedButton.tap();
 
     const continueButton = element(by.text(/continue/i));
     await expect(continueButton).toBeVisible();
 
+    await device.takeScreenshot('Onboarding-screen1');
     await continueButton.tap();
+    await device.takeScreenshot('Onboarding-screen2');
     await continueButton.tap();
+    await device.takeScreenshot('paywall-screen');
 
     const subscribeButton = element(by.text(/try free for 3 days/i));
     const closeButton = element(by.id(/closeButton/i));
@@ -26,6 +42,7 @@ describe('Onboarding Flow', () => {
     await expect(closeButton).toBeVisible();
 
     await closeButton.tap();
+    await device.takeScreenshot('home-screen');
     const welcomeMessage = element(by.text(/hi, plant lover!/i));
     await expect(welcomeMessage).toBeVisible();
 
