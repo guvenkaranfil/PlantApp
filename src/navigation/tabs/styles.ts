@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 import colors from '@src/theme/colors';
+import fontSizes from '@src/theme/fontSizes';
 
 export default StyleSheet.create({
   alignCenter: {
@@ -36,7 +37,7 @@ export default StyleSheet.create({
   },
   tabBarLabel: {
     paddingTop: 5,
-    fontSize: 13,
+    fontSize: fontSizes.medium,
     fontFamily: 'Rubik-Regular',
   },
 });

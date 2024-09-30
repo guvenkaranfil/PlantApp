@@ -3,7 +3,7 @@ import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import colors from '@src/theme/colors';
-import Sizes from '@utils/Sizes';
+import fontSizes from '@src/theme/fontSizes';
 
 import {IOnboardingData} from './datas';
 
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
   welcome: {
     color: colors.green.dark,
-    fontSize: Sizes.h1,
+    fontSize: fontSizes.h2,
     fontFamily: 'Rubik-Medium',
     lineHeight: 36,
   },

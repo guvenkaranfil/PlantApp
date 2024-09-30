@@ -15,7 +15,7 @@ import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import colors from '@src/theme/colors';
-import Sizes from '@utils/Sizes';
+import fontSizes from '@src/theme/fontSizes';
 
 import FeatureCard from './featureCard';
 import OfferOption from './offerOption';
@@ -138,17 +138,17 @@ const styles = StyleSheet.create({
   },
   appTitle: {
     color: colors.white.main,
-    fontSize: Sizes.h1,
+    fontSize: fontSizes.h2,
     fontFamily: 'Rubik-ExtraBold',
   },
   premiumTitle: {
-    fontSize: Sizes.h2,
+    fontSize: fontSizes.h3,
     fontFamily: 'Rubik-Regular',
     lineHeight: 30,
   },
   promotion: {
     color: colors.white.main,
-    fontSize: Sizes.h3,
+    fontSize: fontSizes.h5,
     opacity: 0.7,
     letterSpacing: 0.38,
   },
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   startLabel: {
-    fontSize: Sizes.h3,
+    fontSize: fontSizes.h5,
     color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     paddingTop: 8,
     textAlign: 'center',
-    fontSize: 9,
+    fontSize: fontSizes.extraSmall,
     fontFamily: 'Rubik-Light',
     color: colors.white.translucent52,
     lineHeight: 12,
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   contractLbl: {
-    fontSize: 11,
+    fontSize: fontSizes.small,
     color: colors.white.translucent52,
   },
   closeButton: {
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black.translucent40,
   },
   closeLabel: {
-    fontSize: Sizes.h5,
+    fontSize: fontSizes.small,
     fontFamily: 'Rubik-SemiBold',
     color: colors.white.main,
   },

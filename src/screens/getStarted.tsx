@@ -13,7 +13,7 @@ import Page from '@components/Page';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import colors from '@src/theme/colors';
-import Sizes from '@utils/Sizes';
+import fontSizes from '@src/theme/fontSizes';
 
 interface GetStartedProps {
   navigation: NativeStackNavigationProp<StackParamList, 'getStarted'>;
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   welcome: {
     color: colors.green.dark,
-    fontSize: Sizes.h1,
+    fontSize: fontSizes.h2,
     fontFamily: 'Rubik-Regular',
   },
   welcomeBold: {
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     color: colors.green.dark,
     opacity: 0.7,
-    fontSize: Sizes.h3,
+    fontSize: fontSizes.h5,
   },
   tree: {
     marginTop: 12,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   startLabel: {
-    fontSize: Sizes.h4,
+    fontSize: fontSizes.mediumLarge,
     color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   },
   contractLabel: {
     textAlign: 'center',
-    fontSize: Sizes.h5,
+    fontSize: fontSizes.small,
     color: colors.green.gray,
     fontFamily: 'Rubik-Regular',
   },

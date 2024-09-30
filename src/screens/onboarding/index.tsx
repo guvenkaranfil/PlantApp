@@ -15,7 +15,7 @@ import Page from '@components/Page';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import colors from '@src/theme/colors';
-import Sizes from '@utils/Sizes';
+import fontSizes from '@src/theme/fontSizes';
 
 import {IOnboardingData, onboardingDatas} from './datas';
 import Dots from './Dots';
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   startLabel: {
-    fontSize: Sizes.h4,
+    fontSize: fontSizes.mediumLarge,
     color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },

@@ -3,7 +3,7 @@ import {Platform, Pressable, StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import colors from '@src/theme/colors';
-import Sizes from '@utils/Sizes';
+import fontSizes from '@src/theme/fontSizes';
 
 export interface IOfferOption {
   id: number;
@@ -118,14 +118,14 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   primaryLabel: {
-    fontSize: Sizes.h3,
+    fontSize: fontSizes.h5,
     color: 'white',
     fontFamily: 'Rubik-Medium',
   },
   secondaryLabel: {
     marginTop: Platform.OS === 'ios' ? 2 : 0,
     color: colors.white.translucent07,
-    fontSize: 12,
+    fontSize: fontSizes.smallLarge,
     fontFamily: 'Rubik-Regular',
     lineHeight: 12,
   },
@@ -140,11 +140,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.green.main,
     borderBottomLeftRadius: 20,
     borderTopRightRadius: 12,
-    fontSize: Sizes.h5,
+    fontSize: fontSizes.small,
     zIndex: 999,
   },
   promotionLabel: {
-    fontSize: 12,
+    fontSize: fontSizes.smallLarge,
     color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },

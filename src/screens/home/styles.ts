@@ -1,7 +1,7 @@
 import {Dimensions, Platform, StyleSheet} from 'react-native';
 
 import colors from '@src/theme/colors';
-import Sizes from '@utils/Sizes';
+import fontSizes from '@src/theme/fontSizes';
 
 const calculateAspectRatio = (
   originalWidth: number,
@@ -43,13 +43,13 @@ export default StyleSheet.create({
     paddingLeft: 24,
   },
   welcomeLabel: {
-    fontSize: Sizes.h3,
+    fontSize: fontSizes.h5,
     color: colors.green.dark,
     fontFamily: 'Rubik-Regular',
   },
   greetingLabel: {
     paddingTop: Platform.OS === 'ios' ? 6 : 0,
-    fontSize: Sizes.h2,
+    fontSize: fontSizes.h3,
     color: colors.green.dark,
     fontFamily: 'Rubik-Medium',
     letterSpacing: 0.35,
@@ -76,7 +76,7 @@ export default StyleSheet.create({
   searchInput: {
     marginLeft: 12,
     flex: 1,
-    fontSize: Sizes.h3,
+    fontSize: fontSizes.h5,
     fontFamily: 'Rubik-Regular',
     color: colors.green.dark,
   },
@@ -92,7 +92,7 @@ export default StyleSheet.create({
   getStartedTitle: {
     paddingTop: 12,
     paddingBottom: 20,
-    fontSize: 15,
+    fontSize: fontSizes.mediumLarge,
     color: colors.green.dark,
     fontFamily: 'Rubik-Medium',
   },
@@ -111,7 +111,7 @@ export default StyleSheet.create({
     padding: 14,
   },
   questionCardLabel: {
-    fontSize: 15,
+    fontSize: fontSizes.mediumLarge,
     color: colors.white.main,
     fontFamily: 'Rubik-Medium',
   },
@@ -145,7 +145,7 @@ export default StyleSheet.create({
     paddingLeft: 16,
   },
   categoryTitle: {
-    fontSize: Sizes.h3,
+    fontSize: fontSizes.h5,
     color: colors.green.dark,
     fontFamily: 'Rubik-Medium',
   },

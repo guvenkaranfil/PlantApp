@@ -12,6 +12,7 @@ import {
 
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import colors from '@src/theme/colors';
+import fontSizes from '@src/theme/fontSizes';
 
 export interface IFeatureCard {
   viewStyle?: StyleProp<ViewStyle>;
@@ -68,14 +69,14 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   primaryLabel: {
-    fontSize: 20,
+    fontSize: fontSizes.h4,
     fontFamily: 'Rubik-Medium',
     color: 'white',
     letterSpacing: 0.38,
   },
   secondaryLabel: {
     paddingTop: Platform.OS === 'ios' ? 2 : 0,
-    fontSize: 13,
+    fontSize: fontSizes.medium,
     fontFamily: 'Rubik-Regular',
     color: colors.white.main,
     opacity: 0.7,
