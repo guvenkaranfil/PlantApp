@@ -3,7 +3,6 @@ import {
   Dimensions,
   FlatList,
   Image,
-  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -14,6 +13,8 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import PlantButton from '@src/components/plantButton';
+import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
 import fontSizes from '@src/theme/fontSizes';
 
@@ -40,25 +41,34 @@ export default function Paywall({navigation}: PaywallProps) {
         style={styles.backgroundImage}
       />
 
-      <Pressable
+      <PlantButton
         testID="closeButton"
         hitSlop={{top: 48, right: 48, bottom: 48, left: 48}}
+        label="X"
+        style={[styles.closeButton, {top: 16 + insets.top}]}
         onPress={goToHome}
-        style={[styles.closeButton, {top: 16 + insets.top}]}>
-        <Text style={styles.closeLabel}>X</Text>
-      </Pressable>
-
+        labelStyle={styles.closeLabel}
+      />
       <View
         style={{
           marginTop: backgroundHeight / 1.8,
           marginBottom: insets.bottom + 34,
         }}>
         <View style={styles.header}>
-          <Text style={styles.appTitle}>
+          <PlantText
+            fontSize="h2"
+            fontFamily="Rubik-ExtraBold"
+            colorName="white.main">
             PlantApp <Text style={styles.premiumTitle}>Premium</Text>
-          </Text>
+          </PlantText>
 
-          <Text style={styles.promotion}>Access All Features</Text>
+          <PlantText
+            label="Access All Features"
+            fontSize="h5"
+            fontFamily="Rubik-Regular"
+            colorName="white.translucent07"
+            letterSpacing={0.38}
+          />
         </View>
 
         <FlatList
@@ -80,34 +90,54 @@ export default function Paywall({navigation}: PaywallProps) {
             />
           ))}
         </View>
-
-        <Pressable style={styles.startButton}>
-          <Text style={styles.startLabel}>Try free for 3 days</Text>
-        </Pressable>
-
-        <Text style={styles.offerDetailLabel}>
-          After the 3-day free trial period you’ll be charged{' '}
-          {offerOptions[selectedOfferID - 1].price} per{' '}
-          {offerOptions[selectedOfferID - 1].period} unless you cancel before
-          the trial expires. Yearly Subscription is Auto-Renewable
-        </Text>
+        <PlantButton
+          label="Try free for 3 days"
+          style={styles.startButton}
+          labelStyle={styles.startLabel}
+        />
+        <PlantText
+          marginHorizontal={24}
+          paddingTop={8}
+          fontFamily="Rubik-Light"
+          textAlign="center"
+          fontSize="extraSmall"
+          colorName="white.translucent52"
+          lineHeight={12}
+          label={`After the 3-day free trial period you’ll be charged${' '} ${
+            offerOptions[selectedOfferID - 1].price
+          } per${' '} ${
+            offerOptions[selectedOfferID - 1].period
+          } unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable`}
+        />
 
         <View style={styles.contracts}>
-          <Pressable>
-            <Text style={styles.contractLbl}>Terms</Text>
-          </Pressable>
-          <Text style={styles.contractLbl}>
-            {'  '}•{'  '}
-          </Text>
-          <Pressable>
-            <Text style={styles.contractLbl}>Privacy</Text>
-          </Pressable>
-          <Text style={styles.contractLbl}>
-            {'  '}•{'  '}
-          </Text>
-          <Pressable>
-            <Text style={styles.contractLbl}>Restore</Text>
-          </Pressable>
+          <PlantButton
+            shouldDefaultStyle={false}
+            label="Terms"
+            labelStyle={styles.contractLbl}
+          />
+          <PlantText
+            fontSize="small"
+            colorName="white.translucent52"
+            fontFamily="Rubik-Regular"
+            label={`${'  '}•${'  '}`}
+          />
+          <PlantButton
+            shouldDefaultStyle={false}
+            label="Privacy"
+            labelStyle={styles.contractLbl}
+          />
+          <PlantText
+            fontSize="small"
+            colorName="white.translucent52"
+            fontFamily="Rubik-Regular"
+            label={`${'  '}•${'  '}`}
+          />
+          <PlantButton
+            shouldDefaultStyle={false}
+            label="Restore"
+            labelStyle={styles.contractLbl}
+          />
         </View>
       </View>
     </ScrollView>
@@ -136,21 +166,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     paddingLeft: 24,
   },
-  appTitle: {
-    color: colors.white.main,
-    fontSize: fontSizes.h2,
-    fontFamily: 'Rubik-ExtraBold',
-  },
   premiumTitle: {
     fontSize: fontSizes.h3,
     fontFamily: 'Rubik-Regular',
     lineHeight: 30,
-  },
-  promotion: {
-    color: colors.white.main,
-    fontSize: fontSizes.h5,
-    opacity: 0.7,
-    letterSpacing: 0.38,
   },
   featuredList: {
     marginBottom: 24,
@@ -164,27 +183,12 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   startButton: {
+    width: undefined,
     marginTop: 26,
     marginHorizontal: 24,
-    height: 56,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.green.main,
-    borderRadius: 12,
   },
   startLabel: {
     fontSize: fontSizes.h5,
-    color: colors.white.main,
-    fontFamily: 'Rubik-Medium',
-  },
-  offerDetailLabel: {
-    marginHorizontal: 24,
-    paddingTop: 8,
-    textAlign: 'center',
-    fontSize: fontSizes.extraSmall,
-    fontFamily: 'Rubik-Light',
-    color: colors.white.translucent52,
-    lineHeight: 12,
   },
   contracts: {
     marginTop: 10,
@@ -194,6 +198,7 @@ const styles = StyleSheet.create({
   contractLbl: {
     fontSize: fontSizes.small,
     color: colors.white.translucent52,
+    fontFamily: 'Rubik-Regular',
   },
   closeButton: {
     top: 8,
@@ -209,6 +214,5 @@ const styles = StyleSheet.create({
   closeLabel: {
     fontSize: fontSizes.small,
     fontFamily: 'Rubik-SemiBold',
-    color: colors.white.main,
   },
 });

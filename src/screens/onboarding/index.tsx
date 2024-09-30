@@ -1,11 +1,9 @@
-import React, {useRef,useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   Dimensions,
   FlatList,
   ImageBackground,
-  Pressable,
   StyleSheet,
-  Text,
   View,
   ViewToken,
 } from 'react-native';
@@ -14,8 +12,8 @@ import {ImageResources} from '@assets/Generated/ImageResources.g';
 import Page from '@components/Page';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import PlantButton from '@src/components/plantButton';
 import colors from '@src/theme/colors';
-import fontSizes from '@src/theme/fontSizes';
 
 import {IOnboardingData, onboardingDatas} from './datas';
 import Dots from './Dots';
@@ -78,10 +76,7 @@ export default function Onboarding({navigation}: OnboardingProps) {
           />
 
           <View style={styles.footer}>
-            <Pressable style={styles.startButton} onPress={continueFlow}>
-              <Text style={styles.startLabel}>Continue</Text>
-            </Pressable>
-
+            <PlantButton label="Continue" onPress={continueFlow} />
             <View style={styles.dotsWrapper}>
               <Dots
                 numberOfDots={onboardingDatas.length}
@@ -101,19 +96,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-  },
-  startButton: {
-    width: '100%',
-    height: 56,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.green.main,
-    borderRadius: 12,
-  },
-  startLabel: {
-    fontSize: fontSizes.mediumLarge,
-    color: colors.white.main,
-    fontFamily: 'Rubik-Medium',
   },
   footer: {
     alignSelf: 'center',

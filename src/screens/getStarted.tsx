@@ -1,19 +1,12 @@
 import React from 'react';
-import {
-  Image,
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import Page from '@components/Page';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import colors from '@src/theme/colors';
-import fontSizes from '@src/theme/fontSizes';
+import PlantButton from '@src/components/plantButton';
+import PlantText from '@src/components/plantText';
 
 interface GetStartedProps {
   navigation: NativeStackNavigationProp<StackParamList, 'getStarted'>;
@@ -32,26 +25,40 @@ export default function GetStarted({navigation}: GetStartedProps) {
     <ImageBackground source={ImageResources.background} style={styles.flex}>
       <Page offsetTop={15}>
         <View style={styles.content}>
-          <Text style={styles.welcome}>
+          <PlantText
+            colorName="green.dark"
+            fontSize="h2"
+            fontFamily="Rubik-Regular">
             Welcome to <Text style={styles.welcomeBold}>PlantApp</Text>
-          </Text>
-          <Text style={styles.promotion}>
-            Identify more than 3000+ plants and 88% accuracy.
-          </Text>
+          </PlantText>
+
+          <PlantText
+            fontFamily="Rubik-Regular"
+            paddingTop={8}
+            fontSize="h5"
+            label="Identify more than 3000+ plants and 88% accuracy."
+            colorName="green.translucent70"
+          />
           <View style={styles.tree}>
             <Image
               source={ImageResources.getstartedtree}
               style={styles.treeImage}
             />
           </View>
-          <Pressable style={styles.startButton} onPress={startOnBoarding}>
-            <Text style={styles.startLabel}>Get Started</Text>
-          </Pressable>
+          <PlantButton label="Get Started" onPress={startOnBoarding} />
           <View style={styles.footer}>
-            <Text style={styles.contractLabel}>
-              By tapping next, you are agreeing to PlantID
-            </Text>
-            <Text style={styles.contractLabel}>
+            <PlantText
+              textAlign="center"
+              label="By tapping next, you are agreeing to PlantID"
+              fontSize="small"
+              fontFamily="Rubik-Regular"
+              colorName="green.gray"
+            />
+            <PlantText
+              textAlign="center"
+              fontSize="small"
+              fontFamily="Rubik-Regular"
+              colorName="green.gray">
               <Text onPress={openTermsAndUse} style={styles.underline}>
                 Terms of Use
               </Text>{' '}
@@ -60,7 +67,7 @@ export default function GetStarted({navigation}: GetStartedProps) {
                 Privacy Policy
               </Text>
               .
-            </Text>
+            </PlantText>
           </View>
         </View>
       </Page>
@@ -76,19 +83,8 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 24,
   },
-  welcome: {
-    color: colors.green.dark,
-    fontSize: fontSizes.h2,
-    fontFamily: 'Rubik-Regular',
-  },
   welcomeBold: {
     fontFamily: 'Rubik-SemiBold',
-  },
-  promotion: {
-    paddingTop: 8,
-    color: colors.green.dark,
-    opacity: 0.7,
-    fontSize: fontSizes.h5,
   },
   tree: {
     marginTop: 12,
@@ -100,28 +96,9 @@ const styles = StyleSheet.create({
     height: undefined,
     resizeMode: 'contain',
   },
-  startButton: {
-    width: '100%',
-    height: 56,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.green.main,
-    borderRadius: 12,
-  },
-  startLabel: {
-    fontSize: fontSizes.mediumLarge,
-    color: colors.white.main,
-    fontFamily: 'Rubik-Medium',
-  },
   footer: {
     paddingTop: 17,
     paddingBottom: 42,
-  },
-  contractLabel: {
-    textAlign: 'center',
-    fontSize: fontSizes.small,
-    color: colors.green.gray,
-    fontFamily: 'Rubik-Regular',
   },
   underline: {
     textDecorationLine: 'underline',

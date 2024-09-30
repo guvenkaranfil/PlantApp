@@ -1,14 +1,22 @@
 import React from 'react';
-import {FlatList, Image,Text, View} from 'react-native';
+import {FlatList, Image, View} from 'react-native';
 
 import {GetStartedQuestion} from '@api/index';
+import PlantText from '@src/components/plantText';
 
 import styles from './styles';
 
 const GetStartedQuestions = ({data}: {data: GetStartedQuestion[]}) => {
   return (
     <View>
-      <Text style={styles.getStartedTitle}>Get Started</Text>
+      <PlantText
+        paddingTop={12}
+        paddingBottom={20}
+        fontSize="mediumLarge"
+        fontFamily="Rubik-Medium"
+        colorName="green.dark"
+        label="Get Started"
+      />
       <FlatList
         horizontal
         data={data}
@@ -21,7 +29,12 @@ const GetStartedQuestions = ({data}: {data: GetStartedQuestion[]}) => {
               style={styles.questionCardImage}
             />
             <View style={styles.questionCardContent}>
-              <Text style={styles.questionCardLabel}>{item.title}</Text>
+              <PlantText
+                label={item.title}
+                fontFamily="Rubik-Medium"
+                fontSize="mediumLarge"
+                colorName="white.main"
+              />
             </View>
           </View>
         )}

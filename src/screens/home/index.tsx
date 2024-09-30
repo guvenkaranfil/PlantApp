@@ -4,8 +4,7 @@ import {
   Image,
   ImageBackground,
   Keyboard,
-  Pressable,
-  Text,
+  Platform,
   TextInput,
   View,
 } from 'react-native';
@@ -19,6 +18,8 @@ import {
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {Search} from '@assets/icons';
 import Page from '@components/Page';
+import PlantButton from '@src/components/plantButton';
+import PlantText from '@src/components/plantText';
 import {useAppSelector} from '@store/hooks';
 
 import GetStartedQuestions from './getStartedQuestions';
@@ -65,12 +66,22 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
         source={ImageResources.homeheader}
         style={styles.headerBackground}>
         <View style={styles.welcome}>
-          <Text style={styles.welcomeLabel}>Hi, plant lover!</Text>
-          <Text style={styles.greetingLabel}>
-            {greeting(getTime.getHours(), getTime.getMinutes())}
-          </Text>
+          <PlantText
+            label="Hi, plant lover!"
+            fontFamily="Rubik-Regular"
+            fontSize="h5"
+            colorName="green.dark"
+          />
+          <PlantText
+            label={greeting(getTime.getHours(), getTime.getMinutes())}
+            paddingTop={Platform.OS === 'ios' ? 6 : 0}
+            fontSize="h3"
+            fontFamily="Rubik-Medium"
+            colorName="green.dark"
+            letterSpacing={0.35}
+            lineHeight={30}
+          />
         </View>
-
         <View style={styles.search}>
           <Search width={20} height={20} style={styles.searchIcon} />
           <TextInput
@@ -84,12 +95,13 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
       </ImageBackground>
 
       {!isUserPremium && (
-        <Pressable
+        <PlantButton
+          shouldDefaultStyle={false}
           testID="premiumBox"
           style={styles.premiumBanner}
           onPress={goToPaywall}>
           <Image source={ImageResources.premiumbox} style={styles.premiumBox} />
-        </Pressable>
+        </PlantButton>
       )}
 
       {categories && categories.data.length > 0 && (
@@ -104,17 +116,20 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
           columnWrapperStyle={styles.categoriesColumnWrapper}
           showsVerticalScrollIndicator={false}
           renderItem={({item}) => (
-            <Pressable style={styles.categoryCard}>
+            <PlantButton shouldDefaultStyle={false} style={styles.categoryCard}>
               <View style={styles.categoryTitleWrapper}>
-                <Text lineBreakMode="head" style={styles.categoryTitle}>
-                  {item.title}
-                </Text>
+                <PlantText
+                  label={item.title}
+                  fontSize="h5"
+                  colorName="green.dark"
+                  fontFamily="Rubik-Medium"
+                />
               </View>
               <Image
                 source={{uri: item.image.url}}
                 style={styles.categoryImage}
               />
-            </Pressable>
+            </PlantButton>
           )}
           onScroll={Keyboard.dismiss}
         />

@@ -1,3 +1,32 @@
+export type IColors =
+  | 'green.main'
+  | 'green.light'
+  | 'green.gray'
+  | 'green.white'
+  | 'green.dark'
+  | 'green.darker'
+  | 'green.translucent10'
+  | 'green.translucent70'
+  | 'green.paywallOfferButtonLinear'
+  | 'black.main'
+  | 'black.indigo'
+  | 'black.gray'
+  | 'black.translucent24'
+  | 'black.translucent40'
+  | 'black.grayTranslucent25'
+  | 'black.grayTranslucent10'
+  | 'white.main'
+  | 'white.off'
+  | 'white.translucent92'
+  | 'white.translucent95'
+  | 'white.translucent52'
+  | 'white.translucent05'
+  | 'white.translucent07'
+  | 'white.translucent30'
+  | 'white.translucent08'
+  | 'gray.light'
+  | 'gray.mediumLight';
+
 export default {
   green: {
     main: '#28AF6E',
@@ -7,6 +36,7 @@ export default {
     dark: '#13231B',
     darker: '#101E17',
     translucent10: 'rgba(19, 35, 27, 0.1)',
+    translucent70: 'rgba(19, 35, 27, 0.7)',
     paywallOfferButtonLinear: [
       'rgba(40, 175, 110, 0)',
       'rgba(40, 175, 110, 0.05)',
@@ -38,4 +68,4 @@ export default {
     light: '#979798',
     mediumLight: '#BDBDBD',
   },
-};
+} as const;

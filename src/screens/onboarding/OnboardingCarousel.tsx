@@ -1,9 +1,9 @@
 import React from 'react';
-import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, Image, StyleSheet, View} from 'react-native';
 
 import {ImageResources} from '@assets/Generated/ImageResources.g';
+import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
-import fontSizes from '@src/theme/fontSizes';
 
 import {IOnboardingData} from './datas';
 
@@ -21,12 +21,30 @@ const OnboardingCarousel = ({
     <View style={{width: screenWidth}}>
       <View style={styles.header}>
         <View>
-          <Text style={[styles.welcome]}>{titleLeftPrimary}</Text>
-          <Text style={styles.welcome}>{titleLeftSecondary}</Text>
+          <PlantText
+            label={titleLeftPrimary}
+            fontSize="h2"
+            fontFamily="Rubik-Medium"
+            colorName="green.dark"
+            lineHeight={36}
+          />
+          <PlantText
+            label={titleLeftSecondary}
+            fontSize="h2"
+            fontFamily="Rubik-Medium"
+            colorName="green.dark"
+            lineHeight={36}
+          />
         </View>
 
         <View>
-          <Text style={[styles.welcome, styles.welcomeBold]}>{titleRight}</Text>
+          <PlantText
+            label={titleRight}
+            fontSize="h2"
+            fontFamily="Rubik-ExtraBold"
+            colorName="green.dark"
+            lineHeight={36}
+          />
           <Image
             source={ImageResources.brush}
             style={[styles.brush, {width: brushSize, right: brushRightOffset}]}
@@ -51,15 +69,6 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     paddingHorizontal: 24,
-  },
-  welcome: {
-    color: colors.green.dark,
-    fontSize: fontSizes.h2,
-    fontFamily: 'Rubik-Medium',
-    lineHeight: 36,
-  },
-  welcomeBold: {
-    fontFamily: 'Rubik-ExtraBold',
   },
   brush: {
     position: 'absolute',

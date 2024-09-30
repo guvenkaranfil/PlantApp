@@ -5,14 +5,13 @@ import {
   Platform,
   StyleProp,
   StyleSheet,
-  Text,
   View,
   ViewStyle,
 } from 'react-native';
 
 import {ImageResources} from '@assets/Generated/ImageResources.g';
+import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
-import fontSizes from '@src/theme/fontSizes';
 
 export interface IFeatureCard {
   viewStyle?: StyleProp<ViewStyle>;
@@ -39,8 +38,21 @@ export default function FeatureCard({
       </View>
 
       <View>
-        <Text style={styles.primaryLabel}>{promotion.primary}</Text>
-        <Text style={styles.secondaryLabel}>{promotion.secondary}</Text>
+        <PlantText
+          fontSize="h4"
+          fontFamily="Rubik-Medium"
+          colorName="white.main"
+          letterSpacing={0.38}
+          label={promotion.primary}
+        />
+        <PlantText
+          paddingTop={Platform.OS === 'ios' ? 2 : 0}
+          fontSize="medium"
+          fontFamily="Rubik-Regular"
+          colorName="white.translucent07"
+          lineHeight={18}
+          label={promotion.secondary}
+        />
       </View>
     </ImageBackground>
   );
@@ -67,19 +79,5 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black.translucent24,
 
     borderRadius: 8,
-  },
-  primaryLabel: {
-    fontSize: fontSizes.h4,
-    fontFamily: 'Rubik-Medium',
-    color: 'white',
-    letterSpacing: 0.38,
-  },
-  secondaryLabel: {
-    paddingTop: Platform.OS === 'ios' ? 2 : 0,
-    fontSize: fontSizes.medium,
-    fontFamily: 'Rubik-Regular',
-    color: colors.white.main,
-    opacity: 0.7,
-    lineHeight: 18,
   },
 });

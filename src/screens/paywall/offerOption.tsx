@@ -1,7 +1,9 @@
 import React, {ReactNode} from 'react';
-import {Platform, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+import PlantButton from '@src/components/plantButton';
+import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
 import fontSizes from '@src/theme/fontSizes';
 
@@ -28,10 +30,11 @@ const Background = ({
   children: ReactNode;
 }) => {
   const selectStateStyle = isSelected ? styles.active : styles.inactive;
+  const linearColors = [...colors.green.paywallOfferButtonLinear];
 
   return isSelected ? (
     <LinearGradient
-      colors={colors.green.paywallOfferButtonLinear}
+      colors={linearColors}
       start={{x: 0, y: 0}}
       end={{x: 1, y: 0}}
       style={[styles.container, selectStateStyle]}>
@@ -55,24 +58,41 @@ export default function OfferOption({
     ? styles.activeSquareStyle
     : styles.inactiveSquareStyle;
   return (
-    <Pressable onPress={() => onPress(id)}>
+    <PlantButton shouldDefaultStyle={false} onPress={() => onPress(id)}>
       <Background isSelected={isSelected}>
         <View style={[styles.squareStyle, pickSquareStyle]}>
           {isSelected && <View style={styles.dot} />}
         </View>
 
         <View style={styles.labels}>
-          <Text style={styles.primaryLabel}>{primaryLabel}</Text>
-          <Text style={styles.secondaryLabel}>{secondaryLabel}</Text>
+          <PlantText
+            paddingBottom={Platform.OS === 'ios' ? 2 : 0}
+            fontSize="h5"
+            colorName="white.main"
+            fontFamily="Rubik-Medium"
+            label={primaryLabel}
+          />
+          <PlantText
+            fontSize="smallLarge"
+            colorName="white.translucent07"
+            fontFamily="Rubik-Regular"
+            label={secondaryLabel}
+            lineHeight={12}
+          />
         </View>
 
         {promotion && (
           <View style={styles.promotion}>
-            <Text style={styles.promotionLabel}>{promotion}</Text>
+            <PlantText
+              fontSize="smallLarge"
+              colorName="white.main"
+              fontFamily="Rubik-Medium"
+              label={promotion}
+            />
           </View>
         )}
       </Background>
-    </Pressable>
+    </PlantButton>
   );
 }
 
@@ -117,18 +137,6 @@ const styles = StyleSheet.create({
   labels: {
     marginLeft: 12,
   },
-  primaryLabel: {
-    fontSize: fontSizes.h5,
-    color: 'white',
-    fontFamily: 'Rubik-Medium',
-  },
-  secondaryLabel: {
-    marginTop: Platform.OS === 'ios' ? 2 : 0,
-    color: colors.white.translucent07,
-    fontSize: fontSizes.smallLarge,
-    fontFamily: 'Rubik-Regular',
-    lineHeight: 12,
-  },
   promotion: {
     paddingTop: 5,
     paddingBottom: 8,
@@ -142,10 +150,5 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 12,
     fontSize: fontSizes.small,
     zIndex: 999,
-  },
-  promotionLabel: {
-    fontSize: fontSizes.smallLarge,
-    color: colors.white.main,
-    fontFamily: 'Rubik-Medium',
   },
 });

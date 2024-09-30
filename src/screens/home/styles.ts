@@ -42,19 +42,6 @@ export default StyleSheet.create({
   welcome: {
     paddingLeft: 24,
   },
-  welcomeLabel: {
-    fontSize: fontSizes.h5,
-    color: colors.green.dark,
-    fontFamily: 'Rubik-Regular',
-  },
-  greetingLabel: {
-    paddingTop: Platform.OS === 'ios' ? 6 : 0,
-    fontSize: fontSizes.h3,
-    color: colors.green.dark,
-    fontFamily: 'Rubik-Medium',
-    letterSpacing: 0.35,
-    lineHeight: 30,
-  },
   searchIcon: {
     alignSelf: 'center',
   },
@@ -143,10 +130,5 @@ export default StyleSheet.create({
     top: 16,
     width: categoryCardWidth * 0.5,
     paddingLeft: 16,
-  },
-  categoryTitle: {
-    fontSize: fontSizes.h5,
-    color: colors.green.dark,
-    fontFamily: 'Rubik-Medium',
   },
 });
