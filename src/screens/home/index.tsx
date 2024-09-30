@@ -4,7 +4,6 @@ import {
   Image,
   ImageBackground,
   Keyboard,
-  Pressable,
   Text,
   TextInput,
   View,
@@ -19,6 +18,7 @@ import {
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {Search} from '@assets/icons';
 import Page from '@components/Page';
+import PlantButton from '@src/components/plantButton';
 import {useAppSelector} from '@store/hooks';
 
 import GetStartedQuestions from './getStartedQuestions';
@@ -70,7 +70,6 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
             {greeting(getTime.getHours(), getTime.getMinutes())}
           </Text>
         </View>
-
         <View style={styles.search}>
           <Search width={20} height={20} style={styles.searchIcon} />
           <TextInput
@@ -84,12 +83,13 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
       </ImageBackground>
 
       {!isUserPremium && (
-        <Pressable
+        <PlantButton
+          shouldDefaultStyle={false}
           testID="premiumBox"
           style={styles.premiumBanner}
           onPress={goToPaywall}>
           <Image source={ImageResources.premiumbox} style={styles.premiumBox} />
-        </Pressable>
+        </PlantButton>
       )}
 
       {categories && categories.data.length > 0 && (
@@ -104,7 +104,7 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
           columnWrapperStyle={styles.categoriesColumnWrapper}
           showsVerticalScrollIndicator={false}
           renderItem={({item}) => (
-            <Pressable style={styles.categoryCard}>
+            <PlantButton shouldDefaultStyle={false} style={styles.categoryCard}>
               <View style={styles.categoryTitleWrapper}>
                 <Text lineBreakMode="head" style={styles.categoryTitle}>
                   {item.title}
@@ -114,7 +114,7 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
                 source={{uri: item.image.url}}
                 style={styles.categoryImage}
               />
-            </Pressable>
+            </PlantButton>
           )}
           onScroll={Keyboard.dismiss}
         />

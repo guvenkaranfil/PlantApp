@@ -1,7 +1,8 @@
 import React, {ReactNode} from 'react';
-import {Platform, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+import PlantButton from '@src/components/plantButton';
 import colors from '@src/theme/colors';
 import fontSizes from '@src/theme/fontSizes';
 
@@ -55,7 +56,7 @@ export default function OfferOption({
     ? styles.activeSquareStyle
     : styles.inactiveSquareStyle;
   return (
-    <Pressable onPress={() => onPress(id)}>
+    <PlantButton shouldDefaultStyle={false} onPress={() => onPress(id)}>
       <Background isSelected={isSelected}>
         <View style={[styles.squareStyle, pickSquareStyle]}>
           {isSelected && <View style={styles.dot} />}
@@ -72,7 +73,7 @@ export default function OfferOption({
           </View>
         )}
       </Background>
-    </Pressable>
+    </PlantButton>
   );
 }
 

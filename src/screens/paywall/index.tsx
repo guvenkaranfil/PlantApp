@@ -3,7 +3,6 @@ import {
   Dimensions,
   FlatList,
   Image,
-  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -94,21 +93,27 @@ export default function Paywall({navigation}: PaywallProps) {
         </Text>
 
         <View style={styles.contracts}>
-          <Pressable>
-            <Text style={styles.contractLbl}>Terms</Text>
-          </Pressable>
+          <PlantButton
+            shouldDefaultStyle={false}
+            label="Terms"
+            labelStyle={styles.contractLbl}
+          />
           <Text style={styles.contractLbl}>
             {'  '}•{'  '}
           </Text>
-          <Pressable>
-            <Text style={styles.contractLbl}>Privacy</Text>
-          </Pressable>
+          <PlantButton
+            shouldDefaultStyle={false}
+            label="Privacy"
+            labelStyle={styles.contractLbl}
+          />
           <Text style={styles.contractLbl}>
             {'  '}•{'  '}
           </Text>
-          <Pressable>
-            <Text style={styles.contractLbl}>Restore</Text>
-          </Pressable>
+          <PlantButton
+            shouldDefaultStyle={false}
+            label="Restore"
+            labelStyle={styles.contractLbl}
+          />
         </View>
       </View>
     </ScrollView>
@@ -189,6 +194,7 @@ const styles = StyleSheet.create({
   contractLbl: {
     fontSize: fontSizes.small,
     color: colors.white.translucent52,
+    fontFamily: 'Rubik-Regular',
   },
   closeButton: {
     top: 8,
