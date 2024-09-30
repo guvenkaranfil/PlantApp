@@ -25,7 +25,8 @@ export type IColors =
   | 'white.translucent30'
   | 'white.translucent08'
   | 'gray.light'
-  | 'gray.mediumLight';
+  | 'gray.mediumLight'
+  | 'gray.mediumDark';
 
 export default {
   green: {
@@ -67,5 +68,6 @@ export default {
   gray: {
     light: '#979798',
     mediumLight: '#BDBDBD',
+    mediumDark: '#AFAFAF',
   },
 } as const;
