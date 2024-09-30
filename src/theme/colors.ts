@@ -7,6 +7,7 @@ export type IColors =
   | 'green.darker'
   | 'green.translucent10'
   | 'green.translucent70'
+  | 'green.mos'
   | 'green.paywallOfferButtonLinear'
   | 'black.main'
   | 'black.indigo'
@@ -38,6 +39,7 @@ export default {
     darker: '#101E17',
     translucent10: 'rgba(19, 35, 27, 0.1)',
     translucent70: 'rgba(19, 35, 27, 0.7)',
+    mos: 'rgba(89, 113, 101, 0.7)',
     paywallOfferButtonLinear: [
       'rgba(40, 175, 110, 0)',
       'rgba(40, 175, 110, 0.05)',

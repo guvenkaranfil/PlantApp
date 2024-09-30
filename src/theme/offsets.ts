@@ -1,3 +1,5 @@
+import normalize from '@src/utils/normalize';
+
 export default {
   _2: 2,
   _5: 5,
@@ -12,5 +14,6 @@ export default {
   _24: 24,
   _34: 34,
   _42: 42,
+  _40: normalize(40),
   _48: 48,
 };

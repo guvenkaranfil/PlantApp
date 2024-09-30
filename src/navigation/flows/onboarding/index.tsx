@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import GetStarted from '@screens/getStarted';
+import GetStarted from '@screens/getStarted/index';
 import Onboarding from '@src/screens/onboarding';
 import Paywall from '@src/screens/paywall';
 

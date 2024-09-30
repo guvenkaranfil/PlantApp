@@ -12,6 +12,7 @@ interface IPlantTextBase {
   top?: number;
   marginHorizontal?: number;
   paddingTop?: number;
+  paddingRight?: number;
   paddingBottom?: number;
   letterSpacing?: number;
   lineHeight?: number;
@@ -41,6 +42,7 @@ type IPlantText = IPlantTextWithLabel | IPlantTextWithChildren;
  * @property {number} [top] - Optional margin at the top of the text.
  * @property {number} [marginHorizontal] - Optional horizontal margin for the text.
  * @property {number} [paddingTop] - Optional padding at the top of the text.
+ * @property {number} [paddingRight] - Optional padding at the right of the text.
  * @property {number} [paddingBottom] - Optional padding at the bottom of the text.
  * @property {number} [letterSpacing] - Optional letter spacing for the text.
  * @property {number} [lineHeight] - Optional line height for the text.
@@ -105,6 +107,7 @@ export default function PlantText({
   top,
   marginHorizontal,
   paddingTop,
+  paddingRight,
   paddingBottom,
   textAlign,
   letterSpacing,
@@ -121,6 +124,7 @@ export default function PlantText({
     : undefined;
 
   const labelStyle = {
+    paddingRight,
     top,
     marginHorizontal,
     paddingTop,
