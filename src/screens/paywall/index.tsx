@@ -14,6 +14,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import PlantButton from '@src/components/plantButton';
 import colors from '@src/theme/colors';
 import fontSizes from '@src/theme/fontSizes';
 
@@ -40,14 +41,14 @@ export default function Paywall({navigation}: PaywallProps) {
         style={styles.backgroundImage}
       />
 
-      <Pressable
+      <PlantButton
         testID="closeButton"
         hitSlop={{top: 48, right: 48, bottom: 48, left: 48}}
+        label="X"
+        style={[styles.closeButton, {top: 16 + insets.top}]}
         onPress={goToHome}
-        style={[styles.closeButton, {top: 16 + insets.top}]}>
-        <Text style={styles.closeLabel}>X</Text>
-      </Pressable>
-
+        labelStyle={styles.closeLabel}
+      />
       <View
         style={{
           marginTop: backgroundHeight / 1.8,
@@ -80,11 +81,11 @@ export default function Paywall({navigation}: PaywallProps) {
             />
           ))}
         </View>
-
-        <Pressable style={styles.startButton}>
-          <Text style={styles.startLabel}>Try free for 3 days</Text>
-        </Pressable>
-
+        <PlantButton
+          label="Try free for 3 days"
+          style={styles.startButton}
+          labelStyle={styles.startLabel}
+        />
         <Text style={styles.offerDetailLabel}>
           After the 3-day free trial period you’ll be charged{' '}
           {offerOptions[selectedOfferID - 1].price} per{' '}
@@ -164,18 +165,12 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   startButton: {
+    width: undefined,
     marginTop: 26,
     marginHorizontal: 24,
-    height: 56,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.green.main,
-    borderRadius: 12,
   },
   startLabel: {
     fontSize: fontSizes.h5,
-    color: colors.white.main,
-    fontFamily: 'Rubik-Medium',
   },
   offerDetailLabel: {
     marginHorizontal: 24,
@@ -209,6 +204,5 @@ const styles = StyleSheet.create({
   closeLabel: {
     fontSize: fontSizes.small,
     fontFamily: 'Rubik-SemiBold',
-    color: colors.white.main,
   },
 });

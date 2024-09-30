@@ -1,17 +1,11 @@
 import React from 'react';
-import {
-  Image,
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import Page from '@components/Page';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import PlantButton from '@src/components/plantButton';
 import colors from '@src/theme/colors';
 import fontSizes from '@src/theme/fontSizes';
 
@@ -44,9 +38,7 @@ export default function GetStarted({navigation}: GetStartedProps) {
               style={styles.treeImage}
             />
           </View>
-          <Pressable style={styles.startButton} onPress={startOnBoarding}>
-            <Text style={styles.startLabel}>Get Started</Text>
-          </Pressable>
+          <PlantButton label="Get Started" onPress={startOnBoarding} />
           <View style={styles.footer}>
             <Text style={styles.contractLabel}>
               By tapping next, you are agreeing to PlantID
@@ -99,19 +91,6 @@ const styles = StyleSheet.create({
     width: undefined,
     height: undefined,
     resizeMode: 'contain',
-  },
-  startButton: {
-    width: '100%',
-    height: 56,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.green.main,
-    borderRadius: 12,
-  },
-  startLabel: {
-    fontSize: fontSizes.mediumLarge,
-    color: colors.white.main,
-    fontFamily: 'Rubik-Medium',
   },
   footer: {
     paddingTop: 17,
