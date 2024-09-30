@@ -7,6 +7,7 @@ import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import PlantButton from '@src/components/plantButton';
 import PlantText from '@src/components/plantText';
+import offsets from '@src/theme/offsets';
 
 interface GetStartedProps {
   navigation: NativeStackNavigationProp<StackParamList, 'getStarted'>;
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Rubik-SemiBold',
   },
   tree: {
-    marginTop: 12,
+    marginTop: offsets._12,
     flex: 1,
   },
   treeImage: {
@@ -97,8 +98,8 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   footer: {
-    paddingTop: 17,
-    paddingBottom: 42,
+    paddingTop: offsets._17,
+    paddingBottom: offsets._42,
   },
   underline: {
     textDecorationLine: 'underline',

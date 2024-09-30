@@ -14,6 +14,7 @@ import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import PlantButton from '@src/components/plantButton';
 import colors from '@src/theme/colors';
+import offsets from '@src/theme/offsets';
 
 import {IOnboardingData, onboardingDatas} from './datas';
 import Dots from './Dots';
@@ -107,6 +108,6 @@ const styles = StyleSheet.create({
   dotsWrapper: {
     alignSelf: 'center',
     marginTop: 32,
-    marginBottom: 12,
+    marginBottom: offsets._12,
   },
 });
