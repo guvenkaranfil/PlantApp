@@ -2,18 +2,18 @@ import React, {useRef, useState} from 'react';
 import {
   Dimensions,
   FlatList,
-  ImageBackground,
+  Image,
   StyleSheet,
   View,
   ViewToken,
 } from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {ImageResources} from '@assets/Generated/ImageResources.g';
-import Page from '@components/Page';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import PlantButton from '@src/components/plantButton';
-import colors from '@src/theme/colors';
+import metrics from '@src/theme/metrics';
 import offsets from '@src/theme/offsets';
 
 import {IOnboardingData, onboardingDatas} from './datas';
@@ -29,6 +29,8 @@ const screenWidth = Dimensions.get('window').width;
 export default function Onboarding({navigation}: OnboardingProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const flatListRef = useRef<any>(null);
+
+  const insets = useSafeAreaInsets();
 
   const handleViewableItemsChanged = useRef(
     ({
@@ -57,57 +59,65 @@ export default function Onboarding({navigation}: OnboardingProps) {
   };
 
   return (
-    <ImageBackground source={ImageResources.background} style={styles.flex}>
-      <Page pageStyle={{backgroundColor: colors.green.white}} offsetTop={15}>
-        <View style={styles.content}>
-          <FlatList
-            testID="list"
-            data={onboardingDatas}
-            renderItem={({item}) => <OnboardingCarousel {...item} />}
-            horizontal
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            keyExtractor={(_, index) => String(index)}
-            onViewableItemsChanged={handleViewableItemsChanged}
-            viewabilityConfig={{
-              itemVisiblePercentThreshold: 50,
-            }}
-            onScrollToIndexFailed={onCarouselScrollToIndexFailed}
-            ref={flatListRef}
-          />
+    <View style={[styles.content, {paddingTop: insets.top + 15}]}>
+      <Image source={ImageResources.background} style={styles.background} />
+      <View style={styles.content}>
+        <FlatList
+          testID="list"
+          data={onboardingDatas}
+          renderItem={({item}) => <OnboardingCarousel {...item} />}
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(_, index) => String(index)}
+          onViewableItemsChanged={handleViewableItemsChanged}
+          viewabilityConfig={{
+            itemVisiblePercentThreshold: 50,
+          }}
+          onScrollToIndexFailed={onCarouselScrollToIndexFailed}
+          ref={flatListRef}
+        />
 
-          <View style={styles.footer}>
-            <PlantButton label="Continue" onPress={continueFlow} />
-            <View style={styles.dotsWrapper}>
-              <Dots
-                numberOfDots={onboardingDatas.length}
-                activeIndex={activeIndex}
-              />
-            </View>
+        <View
+          style={[styles.footer, {paddingBottom: offsets._13 + insets.bottom}]}>
+          <PlantButton
+            style={styles.continueButton}
+            label="Continue"
+            onPress={continueFlow}
+          />
+          <View style={styles.dotsWrapper}>
+            <Dots
+              numberOfDots={onboardingDatas.length}
+              activeIndex={activeIndex}
+            />
           </View>
         </View>
-      </Page>
-    </ImageBackground>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  flex: {
-    flex: 1,
+  background: {
+    position: 'absolute',
+    width: metrics.DEVICE_WIDTH,
+    height: metrics.DEVICE_HEIGHT,
   },
   content: {
     flex: 1,
   },
   footer: {
-    alignSelf: 'center',
-    width: screenWidth - 24,
-    height: 120,
-    position: 'absolute',
     bottom: 0,
+    position: 'absolute',
+    alignSelf: 'center',
+    width: screenWidth,
   },
   dotsWrapper: {
-    alignSelf: 'center',
     marginTop: 32,
-    marginBottom: offsets._12,
+    alignSelf: 'center',
+  },
+  continueButton: {
+    marginHorizontal: 24,
+    width: undefined,
   },
 });

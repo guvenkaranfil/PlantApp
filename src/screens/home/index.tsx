@@ -21,6 +21,7 @@ import Page from '@components/Page';
 import PlantButton from '@src/components/plantButton';
 import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
+import offsets from '@src/theme/offsets';
 import {useAppSelector} from '@store/hooks';
 
 import GetStartedQuestions from './getStartedQuestions';
@@ -95,20 +96,34 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
         </View>
       </ImageBackground>
 
-      {!isUserPremium && (
+      {(!categories?.data.length && !isUserPremium) ? (
         <PlantButton
           shouldDefaultStyle={false}
           testID="premiumBox"
-          style={styles.premiumBanner}
+          style={[styles.premiumBanner, {marginTop: offsets._24}]}
           onPress={goToPaywall}>
           <Image source={ImageResources.premiumbox} style={styles.premiumBox} />
         </PlantButton>
-      )}
+      ) : undefined}
 
       {categories && categories.data.length > 0 && (
         <FlatList
           ListHeaderComponent={
-            <GetStartedQuestions data={getStartedQuestions} />
+            <>
+              {!isUserPremium ? (
+                <PlantButton
+                  shouldDefaultStyle={false}
+                  testID="premiumBox"
+                  style={styles.premiumBanner}
+                  onPress={goToPaywall}>
+                  <Image
+                    source={ImageResources.premiumbox}
+                    style={styles.premiumBox}
+                  />
+                </PlantButton>
+              ) : undefined}
+              <GetStartedQuestions data={getStartedQuestions} />
+            </>
           }
           style={styles.categories}
           contentContainerStyle={styles.categoryContent}
@@ -116,8 +131,16 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
           numColumns={2}
           columnWrapperStyle={styles.categoriesColumnWrapper}
           showsVerticalScrollIndicator={false}
-          renderItem={({item}) => (
-            <PlantButton shouldDefaultStyle={false} style={styles.categoryCard}>
+          renderItem={({item, index}) => (
+            <PlantButton
+              shouldDefaultStyle={false}
+              style={[
+                styles.categoryCard,
+                {
+                  marginRight: index % 2 === 0 ? offsets._0 : offsets._24,
+                  marginLeft: index % 2 === 0 ? offsets._24 : offsets._0,
+                },
+              ]}>
               <View style={styles.categoryTitleWrapper}>
                 <PlantText
                   label={item.title}

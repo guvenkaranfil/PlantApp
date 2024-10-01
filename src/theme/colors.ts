@@ -7,6 +7,7 @@ export type IColors =
   | 'green.darker'
   | 'green.translucent10'
   | 'green.translucent70'
+  | 'green.mos'
   | 'green.paywallOfferButtonLinear'
   | 'black.main'
   | 'black.indigo'
@@ -24,6 +25,7 @@ export type IColors =
   | 'white.translucent07'
   | 'white.translucent30'
   | 'white.translucent08'
+  | 'white.onboardingLinearBackground'
   | 'gray.light'
   | 'gray.mediumLight'
   | 'gray.mediumDark';
@@ -38,6 +40,7 @@ export default {
     darker: '#101E17',
     translucent10: 'rgba(19, 35, 27, 0.1)',
     translucent70: 'rgba(19, 35, 27, 0.7)',
+    mos: 'rgba(89, 113, 101, 0.7)',
     paywallOfferButtonLinear: [
       'rgba(40, 175, 110, 0)',
       'rgba(40, 175, 110, 0.05)',
@@ -64,6 +67,11 @@ export default {
     translucent07: 'rgba(255, 255, 255, 0.7)',
     translucent30: 'rgba(255, 255, 255, 0.3)',
     translucent08: 'rgba(255, 255, 255, 0.08)',
+    onboardingLinearBackground: [
+      'rgba(255,255,255,0)',
+      'rgba(255,255,255,2)',
+      'rgba(255,255,255,1)',
+    ],
   },
   gray: {
     light: '#979798',

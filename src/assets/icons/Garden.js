@@ -3,8 +3,8 @@ import Svg, {ClipPath,Defs, G, Path} from 'react-native-svg';
 const SvgGarden = props => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
-    width="-"
-    height="-"
+    width={props.width ?? 25}
+    height={props.height ?? 25}
     fill="none"
     viewBox="0 0 25 25"
     {...props}>

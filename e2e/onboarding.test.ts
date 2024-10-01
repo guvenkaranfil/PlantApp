@@ -29,9 +29,13 @@ describe('Onboarding Flow', () => {
     await expect(closeButton).toBeVisible();
 
     await closeButton.tap();
-    await device.takeScreenshot('home-screen');
     const welcomeMessage = element(by.text(/hi, plant lover!/i));
     await expect(welcomeMessage).toBeVisible();
+    // eslint-disable-next-line testing-library/await-async-utils
+    await waitFor(element(by.text(/get started?/i)))
+      .toBeVisible()
+      .withTimeout(5000); // waits up to 5 seconds
+    await device.takeScreenshot('home-screen');
 
     const premiumBoxButton = element(by.id(/premiumBox/i));
     await expect(premiumBoxButton).toBeVisible();
