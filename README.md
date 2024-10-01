@@ -155,7 +155,7 @@ If there are some changes but they are intend to be, just run below command to u
 yarn run update:baseline
 ```
 
-https://github.com/guvenkaranfil/PlantApp/blob/main/docs/videos/demo_compare_ui.mp4
+![Watch the Demo](https://github.com/user-attachments/assets/e9059c40-1a9c-4a2e-b1f8-2e3f2a3a7c73)
 
 ## Dependencies
 
@@ -180,4 +180,4 @@ https://github.com/guvenkaranfil/PlantApp/blob/main/docs/videos/demo_compare_ui.
 
 # Demo
 
-https://github.com/guvenkaranfil/PlantApp/blob/main/docs/videos/demo.gif
+![Watch the Demo](https://github.com/guvenkaranfil/PlantApp/raw/main/docs/videos/demo.gif)
