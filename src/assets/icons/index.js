@@ -1,3 +1,4 @@
+export {default as Close} from './Close';
 export {default as Garden} from './Garden';
 export {default as Healthcare} from './Healthcare';
 export {default as Home} from './Home';

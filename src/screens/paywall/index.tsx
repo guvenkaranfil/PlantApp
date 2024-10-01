@@ -13,6 +13,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import {StackParamList} from '@navigation/StackParamList';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {Close} from '@src/assets/icons';
 import PlantButton from '@src/components/plantButton';
 import PlantText from '@src/components/plantText';
 import {getStorage} from '@src/storage';
@@ -53,11 +54,10 @@ export default function Paywall({navigation}: PaywallProps) {
       <PlantButton
         testID="closeButton"
         hitSlop={{top: 48, right: 48, bottom: 48, left: 48}}
-        label="X"
         style={[styles.closeButton, {top: 16 + insets.top}]}
-        onPress={goToHome}
-        labelStyle={styles.closeLabel}
-      />
+        onPress={goToHome}>
+        <Close width={offsets._24} height={offsets._24} />
+      </PlantButton>
       <View
         style={{
           marginTop: backgroundHeight / 1.8,
@@ -219,9 +219,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 12,
     backgroundColor: colors.black.translucent40,
-  },
-  closeLabel: {
-    fontSize: fontSizes.small,
-    fontFamily: 'Rubik-SemiBold',
   },
 });
