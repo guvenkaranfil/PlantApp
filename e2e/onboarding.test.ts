@@ -31,6 +31,7 @@ describe('Onboarding Flow', () => {
     await closeButton.tap();
     const welcomeMessage = element(by.text(/hi, plant lover!/i));
     await expect(welcomeMessage).toBeVisible();
+    // eslint-disable-next-line testing-library/await-async-utils
     await waitFor(element(by.text(/get started?/i)))
       .toBeVisible()
       .withTimeout(5000); // waits up to 5 seconds
