@@ -25,6 +25,7 @@ export type IColors =
   | 'white.translucent07'
   | 'white.translucent30'
   | 'white.translucent08'
+  | 'white.onboardingLinearBackground'
   | 'gray.light'
   | 'gray.mediumLight'
   | 'gray.mediumDark';
@@ -66,6 +67,11 @@ export default {
     translucent07: 'rgba(255, 255, 255, 0.7)',
     translucent30: 'rgba(255, 255, 255, 0.3)',
     translucent08: 'rgba(255, 255, 255, 0.08)',
+    onboardingLinearBackground: [
+      'rgba(255,255,255,0)',
+      'rgba(255,255,255,2)',
+      'rgba(255,255,255,1)',
+    ],
   },
   gray: {
     light: '#979798',

@@ -4,6 +4,10 @@ import Onboarding from '@screens/onboarding';
 import {onboardingDatas} from '@screens/onboarding/datas';
 import {fireEvent, render, screen} from '@testing-library/react-native';
 
+jest.mock('react-native-safe-area-context', () => ({
+  useSafeAreaInsets: jest.fn(() => ({top: 0, bottom: 0})),
+}));
+
 const actualNav = jest.requireActual('@react-navigation/native');
 const mockNavigation = {
   ...actualNav,
@@ -28,7 +32,9 @@ describe('Onboarding Screen', () => {
 
     onboardingDatas.map((item, index) => {
       expect(screen.getByText(item.titleLeftPrimary)).toBeOnTheScreen();
-      expect(screen.getByText(item.titleLeftSecondary)).toBeOnTheScreen();
+      if (item.titleLeftSecondary) {
+        expect(screen.getByText(item.titleLeftSecondary)).toBeOnTheScreen();
+      }
       expect(screen.getByText(item.titleRight)).toBeOnTheScreen();
       expect(contentImages[index].props.source).toBe(item.contentSource);
     });

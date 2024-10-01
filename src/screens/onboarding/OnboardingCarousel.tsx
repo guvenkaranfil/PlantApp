@@ -1,14 +1,18 @@
 import React from 'react';
 import {Dimensions, Image, StyleSheet, View} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 import {ImageResources} from '@assets/Generated/ImageResources.g';
 import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
+import metrics from '@src/theme/metrics';
+import normalize from '@src/utils/normalize';
 
 import {IOnboardingData} from './datas';
 
 const screenWidth = Dimensions.get('window').width;
 
+const linearColors = colors.white.onboardingLinearBackground;
 const OnboardingCarousel = ({
   titleLeftPrimary,
   titleLeftSecondary,
@@ -17,6 +21,7 @@ const OnboardingCarousel = ({
   contentSource,
   brushRightOffset,
 }: IOnboardingData) => {
+  const index = titleRight === 'care guides' ? 2 : 0;
   return (
     <View style={{width: screenWidth}}>
       <View style={styles.header}>
@@ -28,13 +33,15 @@ const OnboardingCarousel = ({
             colorName="green.dark"
             lineHeight={36}
           />
-          <PlantText
-            label={titleLeftSecondary}
-            fontSize="h2"
-            fontFamily="Rubik-Medium"
-            colorName="green.dark"
-            lineHeight={36}
-          />
+          {titleLeftSecondary && (
+            <PlantText
+              label={titleLeftSecondary}
+              fontSize="h2"
+              fontFamily="Rubik-Medium"
+              colorName="green.dark"
+              lineHeight={36}
+            />
+          )}
         </View>
 
         <View>
@@ -52,15 +59,20 @@ const OnboardingCarousel = ({
         </View>
       </View>
 
-      <View style={styles.tree}>
-        <Image
-          source={contentSource}
-          style={styles.treeImage}
-          testID="contentImage"
-        />
-      </View>
+      <Image
+        source={contentSource}
+        style={[styles.treeImage]}
+        testID="contentImage"
+      />
 
-      <View style={styles.carouselFooterWrapper} />
+      {index === 2 && (
+        <LinearGradient
+          style={styles.linearBackground}
+          colors={[...linearColors]}
+          start={{x: 0, y: 0}} // Start at the top
+          end={{x: 0, y: 1}} // End at the bottom
+        />
+      )}
     </View>
   );
 };
@@ -76,25 +88,17 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     top: 26,
   },
-  tree: {
-    position: 'absolute',
-    top: 60,
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
   treeImage: {
+    marginBottom: 40,
     flex: 1,
-    width: undefined,
-    height: undefined,
+    width: metrics.DEVICE_WIDTH,
     resizeMode: 'contain',
   },
-  carouselFooterWrapper: {
-    width: screenWidth - 48,
-    height: 120,
-    backgroundColor: colors.green.white,
+  linearBackground: {
     position: 'absolute',
     bottom: 0,
+    width: metrics.DEVICE_WIDTH,
+    height: normalize(235),
   },
 });
 
