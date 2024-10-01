@@ -1,7 +1,7 @@
 name: Lint and Test
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - main
 
@@ -41,3 +41,9 @@ jobs:
         run: |
           echo "Lint checks failed. Please review and fix the issues."
           exit 1
+
+      - name: Jest coverage report
+          uses: ArtiomTr/jest-coverage-report-action@v2.3.1  
+          with:
+            id: coverage
+            package-manager: yarn
