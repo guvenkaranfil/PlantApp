@@ -180,4 +180,4 @@ yarn run update:baseline
 
 # Demo
 
-![Watch the Demo](https://github.com/guvenkaranfil/PlantApp/blob/main/docs/videos/demo.gif)
+![Watch the Demo](https://github.com/guvenkaranfil/PlantApp/raw/main/docs/videos/demo.gif)
