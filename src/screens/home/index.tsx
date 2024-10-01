@@ -22,6 +22,7 @@ import PlantButton from '@src/components/plantButton';
 import PlantText from '@src/components/plantText';
 import colors from '@src/theme/colors';
 import offsets from '@src/theme/offsets';
+import i18n from '@src/translation';
 import {useAppSelector} from '@store/hooks';
 
 import GetStartedQuestions from './getStartedQuestions';
@@ -69,7 +70,7 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
         style={styles.headerBackground}>
         <View style={styles.welcome}>
           <PlantText
-            label="Hi, plant lover!"
+            label={i18n.t('home.welcomeMessage')}
             fontFamily="Rubik-Regular"
             fontSize="h5"
             colorName="green.dark"
@@ -96,7 +97,7 @@ export default function Home({getTime = new Date(), navigation}: HomeProps) {
         </View>
       </ImageBackground>
 
-      {(!categories?.data.length && !isUserPremium) ? (
+      {!categories?.data.length && !isUserPremium ? (
         <PlantButton
           shouldDefaultStyle={false}
           testID="premiumBox"

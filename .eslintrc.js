@@ -9,8 +9,9 @@ module.exports = {
     },
   ],
   ignorePatterns: ['**/src/assets/'],
-  plugins: ['import-alias', 'simple-import-sort'],
+  plugins: ['import-alias', 'simple-import-sort', 'i18next'],
   rules: {
+    // 'i18next/no-literal-string': 'warn',
     'react-native/no-unused-styles': 'warn',
     'simple-import-sort/imports': [
       'warn',
