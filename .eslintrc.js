@@ -8,7 +8,7 @@ module.exports = {
       extends: ['plugin:testing-library/react'],
     },
   ],
-  ignorePatterns: ['**/src/assets/'],
+  ignorePatterns: ['**/src/assets/', '**/coverage'],
   plugins: ['import-alias', 'simple-import-sort'],
   rules: {
     'react-native/no-unused-styles': 'warn',
