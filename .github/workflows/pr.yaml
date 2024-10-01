@@ -42,7 +42,7 @@ jobs:
           echo "Lint checks failed. Please review and fix the issues."
           exit 1
       - name: Jest coverage report
-          uses: ArtiomTr/jest-coverage-report-action@v2.3.1  
-          with:
-            id: coverage
-            package-manager: yarn
+        uses: ArtiomTr/jest-coverage-report-action@v2.3.1  
+        with:
+          id: coverage
+          package-manager: yarn
