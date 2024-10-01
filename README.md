@@ -180,4 +180,4 @@ yarn run update:baseline
 
 # Demo
 
-[Demo](/docs/videos/demo.gif)
+[Demo](https://github.com/guvenkaranfil/PlantApp/blob/main/docs/videos/demo_compare_ui.mp4)
