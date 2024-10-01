@@ -5,8 +5,6 @@ class MyPathBuilder {
 
   buildPathForTestArtifact(artifactName, testSummary) {
     /* ... use this._rootDir ... */
-    console.log('this._rootDir:', this._rootDir);
-    console.log('this._rootDir:', artifactName);
     return './__tests__/artifacts/current/' + artifactName;
   }
 }
