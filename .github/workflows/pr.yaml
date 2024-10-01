@@ -46,3 +46,4 @@ jobs:
         with:
           id: coverage
           package-manager: yarn
+          github-token: ${{ secrets.GITHUB_TOKEN }}
