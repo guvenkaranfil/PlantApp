@@ -1,5 +1,6 @@
 export type IFontSizes =
   | 'extraSmall'
+  | 'extraSmallMedium'
   | 'small'
   | 'smallLarge'
   | 'medium'
@@ -13,6 +14,7 @@ export type IFontSizes =
 
 export default {
   extraSmall: 9, // Extra small text, e.g., footnotes
+  extraSmallMedium: 10, // Extra small medium text
   small: 11, // Small text, e.g., captions
   smallLarge: 12, // Small large text
   medium: 13, // Medium text, e.g., labels

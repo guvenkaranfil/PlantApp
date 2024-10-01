@@ -24,7 +24,7 @@ const TabIcon = ({focused, icon, label}: ITabIcon) => {
       <PlantText
         label={label}
         paddingTop={5}
-        fontSize="medium"
+        fontSize="extraSmallMedium"
         fontFamily="Rubik-Regular"
         colorName={focused ? 'green.main' : 'gray.light'}
       />

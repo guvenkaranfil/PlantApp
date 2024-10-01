@@ -14,6 +14,7 @@ interface IPlantTextBase {
   paddingTop?: number;
   paddingRight?: number;
   paddingBottom?: number;
+  paddingLeft?: number;
   letterSpacing?: number;
   lineHeight?: number;
   textAlign?: TextStyle['textAlign'];
@@ -88,6 +89,7 @@ type IPlantText = IPlantTextWithLabel | IPlantTextWithChildren;
  * @param {number} [marginHorizontal] - Optional horizontal margin for the text.
  * @param {number} [paddingTop] - Optional padding at the top of the text.
  * @param {number} [paddingBottom] - Optional padding at the bottom of the text.
+ * @param {number} [paddingLeft] - Optional padding at the left of the text.
  * @param {number} [letterSpacing] - Optional letter spacing for the text.
  * @param {number} [lineHeight] - Optional line height for the text.
  * @param {TextStyle['textAlign']} [textAlign] - Specifies the alignment of the text (e.g., 'left', 'center', 'right').
@@ -98,7 +100,7 @@ type IPlantText = IPlantTextWithLabel | IPlantTextWithChildren;
  * <PlantText label="Hello World" colorName="green.main" />
  * <PlantText colorName="black.gray">Hello World</PlantText>
  * ```
-*/
+ */
 export default function PlantText({
   label,
   colorName,
@@ -109,6 +111,7 @@ export default function PlantText({
   paddingTop,
   paddingRight,
   paddingBottom,
+  paddingLeft,
   textAlign,
   letterSpacing,
   lineHeight,
@@ -124,11 +127,12 @@ export default function PlantText({
     : undefined;
 
   const labelStyle = {
-    paddingRight,
     top,
     marginHorizontal,
     paddingTop,
     paddingBottom,
+    paddingRight,
+    paddingLeft,
     color: colorValue,
     fontFamily: fontFamily ?? undefined,
     fontSize: fontSize ? fontSizes[fontSize] : undefined,

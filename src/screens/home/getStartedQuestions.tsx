@@ -3,6 +3,7 @@ import {FlatList, Image, View} from 'react-native';
 
 import {GetStartedQuestion} from '@api/index';
 import PlantText from '@src/components/plantText';
+import offsets from '@src/theme/offsets';
 
 import styles from './styles';
 
@@ -12,6 +13,7 @@ const GetStartedQuestions = ({data}: {data: GetStartedQuestion[]}) => {
       <PlantText
         paddingTop={12}
         paddingBottom={20}
+        paddingLeft={offsets._24}
         fontSize="mediumLarge"
         fontFamily="Rubik-Medium"
         colorName="green.dark"

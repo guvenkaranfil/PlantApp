@@ -7,7 +7,7 @@ import {
   Healthcare as SvgDiagnose,
   Home as SvgHome,
   Profile as SvgProfile,
-  Scanner as SvgScanner,
+  ScanTab as SvgScanner,
 } from '@assets/icons';
 import {
   BottomTabBarProps,
