@@ -155,7 +155,7 @@ If there are some changes but they are intend to be, just run below command to u
 yarn run update:baseline
 ```
 
-[Demo Video](/docs/videos/demo_compare_ui.mov)
+[Demo Video](/docs/videos/demo_compare_ui.mp4)
 
 ## Dependencies
 
